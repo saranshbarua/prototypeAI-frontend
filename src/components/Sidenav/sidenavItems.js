@@ -43,9 +43,9 @@ const SidenavItems = () => {
     ];
 
     const element = (item,i) => (
-        <div key={i}>
-            <Link to={item.link}>
-                {item.text}
+        <div key={i} className="nav-item">
+            <Link to={item.link} style={{ textDecoration: 'none'}}>
+                <span className="navitem-text ssp-400">{item.text}</span>
             </Link>
         </div>
     )

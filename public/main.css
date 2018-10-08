@@ -96,8 +96,9 @@ body {
 .img-container {
     height: 60px;
     width: 60px;
-    border: 1px solid;
-    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .profile-name {
@@ -113,7 +114,23 @@ body {
 }
 
 .navitems-container {
-    border: 1px solid;
     width: 105%;
     min-height: 400px;
+}
+
+.nav-item {
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 30px; 
+    margin: 8px 0px;
+}
+
+.nav-item:hover {
+    border-left: 4px solid #90a4ae;
+}
+
+.navitem-text {
+    color: #263238;
 }
