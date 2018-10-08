@@ -5,11 +5,13 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from './components/Home/home';
 import Layout from './hoc/layout';
+import Login from './components/Login/login';
 
 const Routes = () => {
   return (
     <Layout>
       <Switch>
+        <Route path="/login" component={Login} />
         <Route path="/" exact component={Home} />
       </Switch>
     </Layout>
