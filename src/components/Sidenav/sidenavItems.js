@@ -47,8 +47,8 @@ const SidenavItems = () => {
     ];
 
     const element = (item,i) => (
-        <Link to={item.link} style={{ textDecoration: 'none', color: '#b0bec5'}}>
-            <div key={i} className="nav-item">
+        <Link key={i} to={item.link} style={{ textDecoration: 'none', color: '#b0bec5'}}>
+            <div className="nav-item">
                     <FontAwesomeIcon 
                         icon={item.icon}
                     />
