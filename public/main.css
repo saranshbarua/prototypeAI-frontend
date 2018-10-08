@@ -27,3 +27,7 @@ body {
     border: 1px solid;
     width: 90%;
 }
+
+.test {
+    color: red;
+}
