@@ -14,5 +14,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     padding: 30px 10px 30px 10px;
+}
+
+.home-comp {
+    color: lime;
+}
+
+.search-bar {
+    height: 40px;
+    border: 1px solid;
+    width: 90%;
 }
