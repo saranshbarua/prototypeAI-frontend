@@ -1,8 +1,11 @@
 import React from 'react'
+
+import Sidenav from '../components/Sidenav/sidenav';
+
 const Layout = (props) => {
   return (
-    <div>
-      Side Navbar
+    <div className="layout">
+      <Sidenav />
       <div>
         {props.children}
       </div>
