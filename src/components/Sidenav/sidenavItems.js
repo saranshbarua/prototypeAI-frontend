@@ -56,7 +56,7 @@ const SidenavItems = () => {
     )
 
     return (
-    <div>
+    <div className="navitems-container">
       {showItems()}
     </div>
   )

@@ -1,5 +1,7 @@
 body {
     margin: 0px;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 /* Fonts */
@@ -51,7 +53,8 @@ body {
 .home-comp {
     color: lime;
     background-color: #eceff1;
-    min-height: 98vh;
+    min-height: 198vh;
+    overflow-y: scroll;
     width: 78vw;
 }
 
@@ -69,9 +72,14 @@ body {
     border-radius: 500px;
     box-shadow: 0px;
     border: 0px;
-    background-color: #eceff1;
+    background-color: #fafafa;
     padding-left: 10px;
     font-size: 15px;
+    color: #263238;
+}
+
+.search-input:focus {
+    outline: none;
 }
 
 .search-input::placeholder {
@@ -95,10 +103,17 @@ body {
 .profile-name {
     font-size: 20px;
     margin: 16px 0px 4px 5px;
+    color:#263238;
 }
 
 .profile-profession {
     font-size: 15px;
     color: #90a4ae;
     margin-left: 5px;
+}
+
+.navitems-container {
+    border: 1px solid;
+    width: 105%;
+    min-height: 400px;
 }
