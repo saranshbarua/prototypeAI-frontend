@@ -132,5 +132,7 @@ body {
 }
 
 .navitem-text {
-    color: #263238;
+    color: #607d8b;
+    font-size: 16px;
+    margin-left: 25px;
 }

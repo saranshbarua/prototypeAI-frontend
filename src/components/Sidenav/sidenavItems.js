@@ -1,53 +1,60 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import FontAwesome from 'react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faNewspaper, faUser, faEnvelope, faImage, faWrench, faUsers, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+library.add(faNewspaper, faUser, faEnvelope, faImage, faWrench, faUsers, faPowerOff);
 
 const SidenavItems = () => {
 
     const items =[
         {
-            icon: 'home',
+            icon: 'newspaper',
             text: 'Timeline',
             link: '/'
         },
         {
-            icon: 'home',
+            icon: 'user',
             text: 'Activity',
             link: '/login'
         },
         {
-            icon: 'home',
+            icon: 'envelope',
             text: 'Message',
             link: '/message'
         },
         {
-            icon: 'home',
+            icon: 'image',
             text: 'Gallery',
             link: '/gallery'
         },
         {
-            icon: 'home',
+            icon: 'wrench',
             text: 'Settings',
             link: '/user'
         },
         {
-            icon: 'home',
+            icon: 'users',
             text: 'Groups',
             link: '/groups'
         },
         {
-            icon: 'home',
+            icon: 'power-off',
             text: 'Logout',
             link: '/logout'
         },
     ];
 
     const element = (item,i) => (
-        <div key={i} className="nav-item">
-            <Link to={item.link} style={{ textDecoration: 'none'}}>
-                <span className="navitem-text ssp-400">{item.text}</span>
-            </Link>
-        </div>
+        <Link to={item.link} style={{ textDecoration: 'none', color: '#b0bec5'}}>
+            <div key={i} className="nav-item">
+                    <FontAwesomeIcon 
+                        icon={item.icon}
+                    />
+                    <span className="navitem-text ssp-400">{item.text}</span>
+            </div>
+        </Link>
     )
     const showItems = () => (
         items.map((item, i) => {
