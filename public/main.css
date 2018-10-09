@@ -232,6 +232,15 @@ body {
     margin-top: 5px;
 }
 
+.pop-next-container {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: rgb(33, 150, 243);
+}
+
 .suggestion-container {
     min-height: 290px;
     width: 71%;
