@@ -309,6 +309,7 @@ body {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     height: 60%;
+    color: #263238;
 }
 
 .upload-textarea:focus {
@@ -316,6 +317,36 @@ body {
 }
 
 .ub-low {
-    border: 1px solid;
-    height: 25%;
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.upload-icons-tab {
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.upload-button {
+    position: absolute;
+    right: 20px;
+    top: -10px;
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+    border: 0px;
+    background-color: rgb(33, 150, 243);
+    font-size: 16px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px;
 }
