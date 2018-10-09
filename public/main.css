@@ -80,9 +80,9 @@ body {
     align-items: center;
     position: absolute;
     left: 0px;
-    border: 1px solid black;
     min-height: 70%;
     padding-top: 40px;
+    padding-left: 25px;
 }
 
 .home-con-right {
@@ -289,4 +289,33 @@ body {
 
 /* Upload box */
 
-.
+.upload-box {
+    height: 150px;
+    width: 85%;
+    margin-top: -20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #cfd8dc;
+}
+
+.upload-textarea {
+    background-color: inherit;
+    padding-left: 15px;
+    padding-top: 15px;
+    border: 0px;
+    font-size: 17px;
+    resize: none;
+    width: 90%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 60%;
+}
+
+.upload-textarea:focus {
+    outline: none;
+}
+
+.ub-low {
+    border: 1px solid;
+    height: 25%;
+}
