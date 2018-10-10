@@ -250,7 +250,23 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.next-pop-button {
+    margin-right: 19px;
+    background-color: white;
+    font-size: 16px;
     color: rgb(33, 150, 243);
+    border: 0px;
+    margin-top: 5px;
+}
+
+.next-pop-button:hover {
+    cursor: pointer;
+}
+
+.next-pop-button:focus {
+    outline:none;
 }
 
 .suggestion-container {
