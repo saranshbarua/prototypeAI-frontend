@@ -9,6 +9,7 @@ class HomeContainer extends Component {
       <div className="home-con">
         <div className="home-con-left">
             <UploadBox />
+            
         </div>
         <div className="home-con-right">
            <Popular />

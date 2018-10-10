@@ -385,3 +385,13 @@ body {
     align-items: center;
     padding-bottom: 3px;
 }
+
+.upload-button:hover {
+    cursor: pointer;
+}
+
+/* Posts */
+
+.post-container {
+
+}

@@ -8,7 +8,7 @@ library.add(faNewspaper, faUser, faEnvelope, faImage, faWrench, faUsers, faPower
 
 const SidenavItems = () => {
 
-    const items =[
+    const items = [
         {
             icon: 'newspaper',
             text: 'Timeline',
