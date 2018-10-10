@@ -234,14 +234,29 @@ body::-webkit-scrollbar-thumb {
     margin-left: 15px;
     color: #263238;
     margin-top: -10px;
+    opacity: 0;
+    animation: pop-appear 300ms ease-in-out 1 forwards;
 }
 
 .popular-desc {
     margin-left: 15px;
     color: #90a4ae;
     font-size: 14px;
-    padding-right: 4px;
+    padding-right: 7px;
     margin-top: 5px;
+    opacity: 0;
+    animation: pop-appear 300ms ease-in-out 1 forwards;
+    animation-delay: 100ms;
+}
+
+@keyframes pop-appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .pop-next-container {
