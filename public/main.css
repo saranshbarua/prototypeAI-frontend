@@ -55,7 +55,6 @@ body {
 
 .home-comp {
     background-color: #eceff1;
-    min-height: 198vh;
     width: 78vw;
     display: flex;
     justify-content: flex-start;
@@ -393,5 +392,116 @@ body {
 /* Posts */
 
 .post-container {
+    width: 85%;
+    min-height: 200px;
+}
 
+.post-box {
+    width: 100%;
+    min-height: 200px;
+    background-color: white;
+    padding-top: 20px;
+}
+
+.post-by-info {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-by-img {
+    height: 100%;
+    width: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.post-by-desc {
+    height: 100%;
+    width: 57%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.post-by-user {
+    font-size: 16px;
+    margin-top: 7px;
+    margin-left: 5px;
+    color: #263238;
+}
+
+.post-by-role {
+    color: #90a4ae;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.post-timestamp {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+.p-ts {
+    color: #90a4ae;
+    font-size: 14px;
+    margin-top: 7px;
+    margin-left: 7px;
+}
+
+.post-desc {
+    max-width: 100%;
+    min-height: 70px;
+    padding: 15px;
+    margin-top: -5px;
+    color: #263238;
+    font-size: 16px;
+}
+
+.post-image {
+    height: auto;
+    max-width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -20px;
+}
+
+.p-img {
+    width: 98%;
+    height: auto;
+}
+
+.post-likes-container {
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.like-button {
+    margin-left: 15px;
+    border: 0px;
+    background-color: white;
+}
+
+.comment-button {
+    margin-left: 20px;
+    border: 0px;
+    background-color: white;
 }
