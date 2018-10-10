@@ -65,7 +65,7 @@ export default class Posts extends Component {
                 Our job description directory contains job description examples covering all the most popular roles. We have examples of job descriptions you can quickly download and modify to suit your unique business requirements.
             </p>
             <div className="post-image">
-                <img src="https://static.bhphotovideo.com/explora/sites/default/files/styles/top_shot/public/TS-Night-Photography.jpg?itok=VO6dxBNS" alt="post" className="p-img" />
+                <img src="http://getwallpapers.com/wallpaper/full/1/0/6/1122076-new-aesthetic-wallpapers-1920x1080-windows-10.jpg" alt="post" className="p-img" />
             </div>
             <div className="post-likes-container">
                 <button className="ssp-400 like-button">
