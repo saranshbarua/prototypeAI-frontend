@@ -49,10 +49,14 @@ const SidenavItems = () => {
     const element = (item,i) => (
         <Link key={i} to={item.link} style={{ textDecoration: 'none', color: '#b0bec5'}}>
             <div className="nav-item">
-                    <FontAwesomeIcon 
-                        icon={item.icon}
-                    />
-                    <span className="navitem-text ssp-400">{item.text}</span>
+                    <div className="nav-item-icon">
+                        <FontAwesomeIcon 
+                            icon={item.icon}
+                        />
+                    </div>
+                    <div className="nav-item-text">
+                        <span className="navitem-text ssp-400">{item.text}</span>
+                    </div>
             </div>
         </Link>
     )
