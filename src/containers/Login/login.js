@@ -25,7 +25,9 @@ export default class Login extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    console.log(this.state)
+    if(this.state.password === 'abc') {
+      this.props.history.push('/');
+    }
   }
 
   render() {
@@ -52,4 +54,4 @@ export default class Login extends Component {
       </div>
     )
   }
-}
+};
