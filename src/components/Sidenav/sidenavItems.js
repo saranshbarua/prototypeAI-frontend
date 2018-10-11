@@ -16,7 +16,7 @@ const SidenavItems = () => {
         },
         {
             icon: 'user',
-            text: 'Activity',
+            text: 'Notifications',
             link: '/login'
         },
         {
