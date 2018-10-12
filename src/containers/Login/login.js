@@ -37,7 +37,7 @@ export default class Login extends Component {
           Login Here  <br />
           <input 
             type="email"
-            placeholder="Enter email"
+            placeholder="Enter email address"
             value={this.state.email}
             onChange={this.handleInputEmail}
           />

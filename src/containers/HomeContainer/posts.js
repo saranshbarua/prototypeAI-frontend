@@ -14,7 +14,7 @@ export default class Posts extends Component {
         <div className="post-box">
             <div className="post-by-info">
                 <div className="post-by-img">
-                    <img src="https://avatars0.githubusercontent.com/u/23500643?v=3&s=100" alt="profileimg" className="post-img" />
+                    <img src="https://avatars2.githubusercontent.com/u/20930496?s=400&v=4" alt="profileimg" className="post-img" />
                 </div>
                 <div className="post-by-desc">
                     <span className="post-by-user ssp-400">Himanshu Tomar</span>
@@ -25,7 +25,7 @@ export default class Posts extends Component {
                 </div>
             </div>
             <p className="post-desc ssp-400">
-                Our job description directory contains job description examples covering all the most popular roles. We have examples of job descriptions you can quickly download and modify to suit your unique business requirements.
+                Lorem ipsum dolor sit amet, Ut enim ad minim veniam, quis nostrud exercitation ullamco, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
             <div className="post-image">
                 <img src="https://static.bhphotovideo.com/explora/sites/default/files/styles/top_shot/public/TS-Night-Photography.jpg?itok=VO6dxBNS" alt="post" className="p-img" />
@@ -99,7 +99,7 @@ export default class Posts extends Component {
                 </div>
             </div>
             <p className="post-desc ssp-400">
-                Our job description directory contains job description examples covering all the most popular roles. We have examples of job descriptions you can quickly download and modify to suit your unique business requirements.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
             <div className="post-image">
                 <img src="https://static.bhphotovideo.com/explora/sites/default/files/styles/top_shot/public/TS-Night-Photography.jpg?itok=VO6dxBNS" alt="post" className="p-img" />
