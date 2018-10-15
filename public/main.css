@@ -9,6 +9,7 @@ body::-webkit-scrollbar {
  
 body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
  
 body::-webkit-scrollbar-thumb {
@@ -651,6 +652,7 @@ body::-webkit-scrollbar-thumb {
     width: 80%;
     background-color: white;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
 }
