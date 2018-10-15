@@ -8,12 +8,25 @@ class SigupOne extends Component {
 
   render() {
     return (
-      <div>
-        Container 1
-        <br/>
+      <div className="su-one">
+        <form onSubmit={this.nextStepInvoke}>
+          <input 
+            type="text"
+          />
+        </form>
         {this.props.email}
         <br/>
         <button onClick={this.updateEmailInvoke}>Update email</button>
+      </div>
+    )
+  }
+}
+
+class SignupTwo extends Component {
+  render() {
+    return (
+      <div style={{display: 'none'}}>
+        Component 2
       </div>
     )
   }
@@ -47,6 +60,7 @@ export default class Signup extends Component {
         <div className="signup-container">
           <p className="ssp-300" style={{fontSize: '35px', color: '#263238'}}>Signup for your account</p>
           <SigupOne {...this.state} someMethod = {this.updateEmail} />
+          <SignupTwo />
         </div>
       </div>
     )
