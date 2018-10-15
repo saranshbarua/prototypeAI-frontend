@@ -34,7 +34,11 @@ export default class Signup extends Component {
   updateEmail = () => {
     this.setState({
       email: 'baruasaransh@gmail.com'
-    })
+    });
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.email);
   }
 
   render() {
