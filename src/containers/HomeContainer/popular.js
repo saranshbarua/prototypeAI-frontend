@@ -41,7 +41,7 @@ class Popular extends Component {
    changePost = () => {
     console.log(this.state.pPosts);
     let nextPos = this.state.pos;
-    if(this.state.pos == (this.state.pPosts.length - 1)) {
+    if(this.state.pos === (this.state.pPosts.length - 1)) {
       nextPos = 0;
     }
     else {
