@@ -41,7 +41,8 @@ export default class Signup extends Component {
       username: '',
       address: '',
       skillset: [],
-      interests: []
+      interests: [],
+      isShowing: 1
   }
 
   updateEmail = () => {
@@ -59,8 +60,16 @@ export default class Signup extends Component {
       <div className="test-form">
         <div className="signup-container">
           <p className="ssp-300" style={{fontSize: '35px', color: '#263238'}}>Signup for your account</p>
-          <SigupOne {...this.state} someMethod = {this.updateEmail} />
-          <SignupTwo />
+          <div>{
+            () => {
+              switch(this.state.isShowing) {
+                case(1):
+                  return <SigupOne {...this.state} someMethod = {this.updateEmail} />;
+                case(2):
+                  return <SignupTwo />;
+              }
+            }
+          }</div>
         </div>
       </div>
     )
