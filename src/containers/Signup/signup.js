@@ -106,20 +106,6 @@ export default class Signup extends Component {
     })
   }
 
-  // showView = () => {
-  //   switch(this.state.isShowing) {
-  //     case '1':
-  //       return <SignupOne submitOne = {this.submitFirstPart} />
-  //       ;
-  //     case '2':
-  //       return <SignupTwo />;
-  //     case '3':
-  //       return <SignupThree />;
-  //     default:
-  //       return <SignupOne submitOne = {this.submitFirstPart} />;
-  //   }
-  // }
-
   showView(state) {
     return (
       <div>
