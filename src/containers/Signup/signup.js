@@ -86,7 +86,7 @@ export default class Signup extends Component {
       address: '',
       skillset: [],
       interests: [],
-      isShowing: 1
+      isShowing: '1'
   }
 
   updateEmail = () => {
@@ -96,14 +96,47 @@ export default class Signup extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.email);
+    console.log(this.state.isShowing);
   }
 
   submitFirstPart = () => {
     console.log('first part submitted');
     this.setState({
-      isShowing: 2
+      isShowing: '2'
     })
+  }
+
+  // showView = () => {
+  //   switch(this.state.isShowing) {
+  //     case '1':
+  //       return <SignupOne submitOne = {this.submitFirstPart} />
+  //       ;
+  //     case '2':
+  //       return <SignupTwo />;
+  //     case '3':
+  //       return <SignupThree />;
+  //     default:
+  //       return <SignupOne submitOne = {this.submitFirstPart} />;
+  //   }
+  // }
+
+  showView(state) {
+    return (
+      <div>
+        {(() => {
+          switch(state) {
+            case '1':
+              return <SignupOne submitOne = {this.submitFirstPart} />;
+            case '2':
+              return <SignupTwo />;
+            case '3':
+              return <SignupThree />;
+            default:
+              return <SignupOne submitOne = {this.submitFirstPart} />;
+          }
+        })()}
+      </div>
+    );
   }
 
   render() {
@@ -112,9 +145,7 @@ export default class Signup extends Component {
         <div className="signup-container">
           <p className="ssp-300" style={{fontSize: '35px', color: '#263238'}}>Signup for your account</p>
           <div style={{height: '95%', width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <SignupOne submitOne = {this.submitFirstPart} />
-            {/* <SignupTwo />
-            <SignupThree /> */}
+            { this.showView(this.state.isShowing) }
           </div>
         </div>
       </div>
