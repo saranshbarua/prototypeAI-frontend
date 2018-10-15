@@ -54,7 +54,13 @@ export default class Login extends Component {
                 onChange={this.handleInputPassword}
                 className="standard-input"
               />
-              <button type="submit" onClick={this.submitForm}>Log in</button>
+              <button 
+                type="submit" 
+                onClick={this.submitForm}
+                className="standard-button"
+              >
+                Log in
+              </button>
             </form>
           </div>
         </div>
