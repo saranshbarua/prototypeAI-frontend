@@ -643,3 +643,14 @@ body::-webkit-scrollbar-thumb {
     margin-top: 30px;
     border-radius: 3px;
 }
+
+/* Signup Container */
+
+.signup-container {
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
