@@ -106,7 +106,7 @@ export default class Signup extends Component {
     })
   }
 
-  showView(state) {
+  showView = (state) => {
     return (
       <div>
         {(() => {
