@@ -29,28 +29,35 @@ export default class Login extends Component {
       this.props.history.push('/');
     }
   }
-
+  
   render() {
     return (
       <div className="test-form">
-        <form onSubmit={this.submitForm}>
-          Login Here  <br />
-          <input 
-            type="email"
-            placeholder="Enter email address"
-            value={this.state.email}
-            onChange={this.handleInputEmail}
-          />
-          <br/>
-          <input 
-            type="password"
-            placeholder="Enter password"
-            value={this.state.password}
-            onChange={this.handleInputPassword}
-          />
-          <br />
-          <button type="submit" onClick={this.submitForm}>Log in</button> 
-        </form>
+        <div className="login-container">
+          <div className="lc-left">
+            <div className="ssp-900 lg-title">PrototypeAI</div>
+          </div>
+          <div className="lc-right">
+            <p className="ssp-300" style={{fontSize: '35px', color: '#263238'}}>Login to your account</p>
+            <form className="login-form" onSubmit={this.submitForm}>
+              <input 
+                type="email"
+                placeholder="Enter email address"
+                value={this.state.email}
+                onChange={this.handleInputEmail}
+                className="standard-input"
+              />
+               <input 
+                type="password"
+                placeholder="Enter password"
+                value={this.state.password}
+                onChange={this.handleInputPassword}
+                className="standard-input"
+              />
+              <button type="submit" onClick={this.submitForm}>Log in</button>
+            </form>
+          </div>
+        </div>
       </div>
     )
   }

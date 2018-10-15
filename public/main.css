@@ -574,6 +574,8 @@ body::-webkit-scrollbar-thumb {
     background-color: white;
 }
 
+/* Login Component */
+
 .test-form {
     width: 100%;
     height: 100vh;
@@ -581,4 +583,54 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #eceff1;
+}
+
+.login-container {
+    height: 70%;
+    width: 70%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.lc-left {
+    height: 100%;
+    width: 49%;
+    border-right: 2px solid lightgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lg-title {
+    font-size: 50px;
+    color: rgb(33, 150, 243);
+}
+
+.lc-right {
+    height: 100%;
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.login-form {
+    height: 70%;
+    width: 80%;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.standard-input {
+    height: 40px;
+    width: 120px;
+
 }
