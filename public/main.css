@@ -641,4 +641,5 @@ body::-webkit-scrollbar-thumb {
     height: 40px;
     width: 290px;
     margin-top: 30px;
+    border-radius: 3px;
 }
