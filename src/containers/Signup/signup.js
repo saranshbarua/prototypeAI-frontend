@@ -19,36 +19,42 @@ class SignupOne extends Component {
             type="text"
             className="standard-input"
             placeholder="Enter a display name"
+            onChange={this.handleDisplay}
             required
           />
           <input 
             type="text"
             className="standard-input"
             placeholder="Enter email"
+            onChange={this.handleDisplay}
             required
           />
           <input 
             type="text"
             className="standard-input"
             placeholder="Choose username"
+            onChange={this.handleDisplay}
             required
           />
           <input 
             type="text"
             className="standard-input"
             placeholder="Choose password"
+            onChange={this.handleDisplay}
             required
           />
           <input 
             type="text"
             className="standard-input"
             placeholder="Re-enter password"
+            onChange={this.handleDisplay}
             required
           />
           <input 
             type="text"
             className="standard-input"
             placeholder="Enter address"
+            onChange={this.handleDisplay}
             required
           />
           <button className="standard-button" onClick={this.invokeSubmit}>Next</button>
@@ -59,19 +65,33 @@ class SignupOne extends Component {
 }
 
 class SignupTwo extends Component {
+
+  invokeSecondSubmit = () => {
+    this.props.submitTwo();
+  }
+
   render() {
     return (
       <div>
-        Component 2
+        <p>Add skills</p>
+        <button onClick={this.invokeSecondSubmit}>Proceed</button>
       </div>
     )
   }
 }
 
 class SignupThree extends Component {
+  invokeFinalSubmit = () => {
+    this.props.submitFinal();
+  }
+
+
   render() {
     return (
-      <div>Component 3</div>
+      <div>
+        <div>Component 3</div>
+        <button onClick={this.invokeFinalSubmit}>Finish</button>
+      </div>
     )
   }
 }
@@ -106,6 +126,17 @@ export default class Signup extends Component {
     })
   }
 
+  submitSecondPart = () => {
+    this.setState({
+      isShowing: '3'
+    })
+  }
+
+  submitFinalPart = () => {
+    alert('form submitted');
+    this.props.history.push('/');
+  }
+
   showView = (state) => {
     return (
       <div>
@@ -114,9 +145,9 @@ export default class Signup extends Component {
             case '1':
               return <SignupOne submitOne = {this.submitFirstPart} />;
             case '2':
-              return <SignupTwo />;
+              return <SignupTwo submitTwo = {this.submitSecondPart} />;
             case '3':
-              return <SignupThree />;
+              return <SignupThree submitFinal = {this.submitFinalPart} />;
             default:
               return <SignupOne submitOne = {this.submitFirstPart} />;
           }

@@ -662,7 +662,6 @@ body::-webkit-scrollbar-thumb {
 .su-con {
     height: 80%;
     width: 80%;
-    border: 1px solid;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
