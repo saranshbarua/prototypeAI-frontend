@@ -37,7 +37,7 @@ const SidenavItems = () => {
         {
             icon: 'users',
             text: 'Groups',
-            link: '/groups'
+            link: '/user/groups'
         },
         {
             icon: 'power-off',
