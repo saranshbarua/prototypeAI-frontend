@@ -2,7 +2,8 @@ body {
     margin: 0px;
     max-height: 100vh;
     -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -679,4 +680,14 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+
+/* Settings */
+
+.user-container {
+    position: absolute;
+    left: 22vw;
+    width: 78vw;
+    min-height: 100vh;
+    border: 1px solid;
 }

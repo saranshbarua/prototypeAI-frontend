@@ -8,6 +8,7 @@ import Layout from './hoc/layout';
 import Login from './containers/Login/login';
 import Signup from './containers/Signup/signup';
 import Groups from './components/Groups/groups';
+import UserSettings from './components/UserSettings/UserContainer';
 
 const Routes = () => {
   return (
@@ -16,6 +17,7 @@ const Routes = () => {
       <Route path="/signup" component={Signup}/>
       <Layout>
           <Route path="/user/groups" component={Groups}/>
+          <Route path="/user/profile" component={UserSettings} />
           <Route path="/" exact component={Home} />
       </Layout>
     </Switch>

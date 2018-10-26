@@ -32,7 +32,7 @@ const SidenavItems = () => {
         {
             icon: 'wrench',
             text: 'Settings',
-            link: '/user'
+            link: '/user/profile'
         },
         {
             icon: 'users',
