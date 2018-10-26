@@ -68,7 +68,6 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     left: 0px;
     top: 0px;
-    border: 1px solid red; 
 }
 
 .home-comp {
