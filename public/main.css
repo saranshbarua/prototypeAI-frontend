@@ -66,8 +66,9 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     padding: 30px 10px 30px 10px;
     position: fixed;
-    left: 0px;
+    left: -4px;
     top: 0px;
+    border: 1px solid red;
 }
 
 .home-comp {
