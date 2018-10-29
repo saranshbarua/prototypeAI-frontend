@@ -691,3 +691,27 @@ body::-webkit-scrollbar-thumb {
     min-height: 100vh;
     border: 1px solid;
 }
+
+/* Groups */
+
+.groups-container {
+    position: absolute;
+    left: 22vw;
+    width: 78vw;
+    min-height: 100vh;
+    border: 1px solid;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    padding-left: 40px;
+}
+
+.group-card {
+    width: 270px;
+    min-height: 270px;
+    border-radius: 4px;
+    box-shadow: 0 3px 17px 0 rgba(0,0,0,0.2);
+    margin: 30px;
+}
