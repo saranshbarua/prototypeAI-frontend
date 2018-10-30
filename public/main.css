@@ -802,7 +802,7 @@ body::-webkit-scrollbar-thumb {
 .gpchat-input {
     height: 65%;
     padding-left: 16px;
-    width: 80%;
+    width: 90%;
     border-radius: 500px;
     border: 0px;
     font-size: 18px;
@@ -811,4 +811,16 @@ body::-webkit-scrollbar-thumb {
 .chatsendbutton {
     height: 80%;
     width:  10%;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: rgb(33, 150, 243);
+    margin-left: -10px;
+    color: white;
+    border: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    padding-right: 12px;
 }
