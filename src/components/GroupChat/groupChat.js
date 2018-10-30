@@ -13,7 +13,9 @@ export default class groupChat extends Component {
             <span className="ssp-400" style={{color: 'white', marginLeft: '10px', fontStyle: 'italic', fontSize: '16px'}}>saransh shivansh himanshu param</span>
         </div>
 
+        <div className="chat-container">
         
+        </div>
 
         <div className="gp-input-container">
             <input 

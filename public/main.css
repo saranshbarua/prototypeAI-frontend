@@ -824,3 +824,21 @@ body::-webkit-scrollbar-thumb {
     font-size: 17px;
     padding-right: 12px;
 }
+
+.chat-container {
+    height: 90vh;
+    max-height: 90vh;
+    overflow-y: scroll;
+    width: 104%;
+    margin-left: -8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.test-chats {
+    width: 150px;
+    margin: 80px;
+    min-height: 30px;
+    background-color: #90a4ae;
+}
