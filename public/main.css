@@ -801,5 +801,11 @@ body::-webkit-scrollbar-thumb {
 
 .gpchat-input {
     height: 80%;
+    padding-left: 10px;
     width: 90%;
+}
+
+.chatsendbutton {
+    height: 80%;
+    width:  10%;
 }

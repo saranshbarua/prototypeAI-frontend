@@ -11,7 +11,7 @@ export default class groupChat extends Component {
 
         <div className="gp-input-container">
             <input type="text" className="gpchat-input"/>
-            <button className="sendbutton"></button>
+            <button className="chatsendbutton">Send</button>
         </div>
       </div>
     )
