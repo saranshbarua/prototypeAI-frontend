@@ -789,20 +789,23 @@ body::-webkit-scrollbar-thumb {
 
 .gp-input-container {
     position: absolute;
-    bottom: 10px;
-    height: 60px;
-    width: 98%;
+    bottom: 0px;
+    height: 70px;
+    width: 100%;
+    background-color: #eceff1;
     margin-left: -4px;
-    border: 1px solid;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .gpchat-input {
-    height: 80%;
-    padding-left: 10px;
-    width: 90%;
+    height: 65%;
+    padding-left: 16px;
+    width: 80%;
+    border-radius: 500px;
+    border: 0px;
+    font-size: 18px;
 }
 
 .chatsendbutton {
