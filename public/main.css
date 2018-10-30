@@ -772,10 +772,11 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .gpchat-header {
-    width: 100%;
+    width: 105%;
     height: 70px;
     background-color: rgb(33, 150, 243);
     display: flex;
@@ -783,4 +784,22 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     align-items: flex-start;
     margin-left: -4px;
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.17);
+}
+
+.gp-input-container {
+    position: absolute;
+    bottom: 10px;
+    height: 60px;
+    width: 98%;
+    margin-left: -4px;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.gpchat-input {
+    height: 80%;
+    width: 90%;
 }
