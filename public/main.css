@@ -69,7 +69,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     left: -4px;
     top: 0px;
-    border: 1px solid red;
+    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.1);
 }
 
 .home-comp {
@@ -776,7 +776,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gpchat-header {
-    width: 78%;
+    width: 78.2vw;
     position: fixed;
     height: 70px;
     background-color: rgb(33, 150, 243);
@@ -792,7 +792,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     bottom: 0px;
     height: 70px;
-    width: 78%;
+    width: 78.2vw;
     background-color: #eceff1;
     margin-left: -4px;
     display: flex;
@@ -833,12 +833,12 @@ body::-webkit-scrollbar-thumb {
 .chat-container {
     min-height: 90vh;
     overflow-y: scroll;
-    width: 100%;
-    margin-left: -8px;
+    width: 78.2vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 60px 0px 80px 0px;
+    background-color: #fafafa;
 }
 
 .chatSender, .chatReciever {
