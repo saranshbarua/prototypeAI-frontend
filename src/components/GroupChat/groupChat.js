@@ -14,30 +14,18 @@ export default class groupChat extends Component {
         </div>
 
         <div className="chat-container">
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
-          <div className="chatSender"></div>
-          <div className="chatReciever"></div>
+          <div className="chatSender">Hey!</div>
+          <div className="chatReciever">Hi :)</div>
+          <div className="chatSender">Lorem ipsum is placeholder text commonly used in the graphic,</div>
+          <div className="chatReciever">Lorem ipsum is placeholder text commonly used in the graphic, print, 
+          and publishing industries for previewing layouts and visual mockups.</div>
+          <div className="chatSender">Lorem ipsum is placeholder text commonly used in the graphic, print,
+          Lorem ipsum is placeholder text commonly used in the graphic, print,
+           and publishing industries for previewing layouts and visual mockups.
+           and publishing industries for previewing layouts and visual mockups
+           Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups..</div>
+          <div className="chatReciever">Let's collect the data in userbase.</div>
+          <div className="chatSender">hey this is good.</div>
         </div>
 
         <div className="gp-input-container">
