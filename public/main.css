@@ -776,7 +776,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gpchat-header {
-    width: 100%;
+    width: 78%;
+    position: fixed;
     height: 70px;
     background-color: rgb(33, 150, 243);
     display: flex;
@@ -788,10 +789,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gp-input-container {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     height: 70px;
-    width: 100%;
+    width: 78%;
     background-color: #eceff1;
     margin-left: -4px;
     display: flex;
@@ -806,6 +807,10 @@ body::-webkit-scrollbar-thumb {
     border-radius: 500px;
     border: 0px;
     font-size: 18px;
+}
+
+.gpchat-input:focus {
+    outline: none;
 }
 
 .chatsendbutton {
@@ -826,10 +831,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .chat-container {
-    height: 90vh;
-    max-height: 90vh;
+    min-height: 90vh;
     overflow-y: scroll;
-    width: 104%;
+    width: 100%;
     margin-left: -8px;
     display: flex;
     flex-direction: column;
@@ -841,4 +845,21 @@ body::-webkit-scrollbar-thumb {
     margin: 80px;
     min-height: 30px;
     background-color: #90a4ae;
+}
+
+.chatSender, .chatReciever {
+    min-width: 120px;
+    max-width: 120px;
+    border: 1px solid red;
+    min-height: 40px;
+    margin: 20px;
+}
+
+.chatSender {
+    display: flex;
+    align-self: flex-end;
+}
+
+.chatReciever {
+
 }

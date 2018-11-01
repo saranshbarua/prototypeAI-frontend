@@ -14,7 +14,30 @@ export default class groupChat extends Component {
         </div>
 
         <div className="chat-container">
-        
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
+          <div className="chatSender"></div>
+          <div className="chatReciever"></div>
         </div>
 
         <div className="gp-input-container">
