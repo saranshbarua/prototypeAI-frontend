@@ -704,7 +704,6 @@ body::-webkit-scrollbar-thumb {
     left: 22vw;
     width: 78vw;
     min-height: 100vh;
-    border: 1px solid;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
