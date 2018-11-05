@@ -25,7 +25,7 @@ export default class Posts extends Component {
   }
 
   likePost(i) {
-    console.log(`You liked ${this.state.posts[i].author}'s post`);
+    alert(`You liked ${this.state.posts[i].author}'s post`);
   }
 
   render() {
