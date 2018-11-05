@@ -8,9 +8,35 @@ export default class Groups extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      groups: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/groups')
+      .then((res) => res.json())
+      .then((result) => {
+        this.setState({
+          groups: result
+        })
+      })
   }
 
   render() {
+
+    const groupList = this.state.groups.map((group,key) => {
+      return (
+        <div className="group-card">
+          <p className="group-name ssp-300">{ group.name }</p>
+          <p className="group-topic ssp-400">
+            { group.bio }
+          </p>
+          <p className="group-members ssp-400">{ group.members.length } Members</p>
+        </div>
+      )
+    })
+
     return (
       <div className="groups-container">
         <button className="add-group-card">
@@ -20,62 +46,7 @@ export default class Groups extends Component {
               size="2x"
             />
         </button>
-
-        <div className="group-card">
-          <p className="group-name ssp-300">Group name</p>
-          <p className="group-topic ssp-400">
-            Lorem ipsum dolor sit amet, 
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p className="group-members ssp-400">35 Members</p>
-        </div>
-        
-        <div className="group-card">
-          <p className="group-name ssp-300">Group name</p>
-          <p className="group-topic ssp-400">
-            Lorem ipsum dolor sit amet, 
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p className="group-members ssp-400">35 Members</p>
-        </div>
-
-        <div className="group-card">
-          <p className="group-name ssp-300">Group name</p>
-          <p className="group-topic ssp-400">
-            Lorem ipsum dolor sit amet, 
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p className="group-members ssp-400">35 Members</p>
-        </div>
-
-        <div className="group-card">
-          <p className="group-name ssp-300">Group name</p>
-          <p className="group-topic ssp-400">
-            Lorem ipsum dolor sit amet, 
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p className="group-members ssp-400">35 Members</p>
-        </div>
-
-        <div className="group-card">
-          <p className="group-name ssp-300">Group name</p>
-          <p className="group-topic ssp-400">
-            Lorem ipsum dolor sit amet, 
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p className="group-members ssp-400">35 Members</p>
-        </div>
-
-        <div className="group-card">
-          <p className="group-name ssp-300">Group name</p>
-          <p className="group-topic ssp-400">
-            Lorem ipsum dolor sit amet, 
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p className="group-members ssp-400">35 Members</p>
-        </div>
-
-
+        {groupList}
       </div>
     )
   }
