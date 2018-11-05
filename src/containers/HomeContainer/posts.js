@@ -24,6 +24,10 @@ export default class Posts extends Component {
     )
   }
 
+  likePost(i) {
+    console.log(`You liked ${this.state.posts[i].author}'s post`);
+  }
+
   render() {
     const postList = this.state.posts.map((post,i) => (
         <div key={i} className="post-box">
@@ -44,7 +48,7 @@ export default class Posts extends Component {
                 <img src={ post.imageUrl} alt="post" className="p-img" />
             </div>
             <div className="post-likes-container">
-                <button className="ssp-400 like-button">
+                <button onClick={(e) => this.likePost(i, e)} className="ssp-400 like-button">
                     <FontAwesomeIcon 
                         icon="thumbs-up"
                         color="#90a4ae"

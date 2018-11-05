@@ -254,6 +254,8 @@ body::-webkit-scrollbar-thumb {
 
 .popular-img {
     height: 151px;
+    max-height: 151px;
+    overflow: hidden;
     width: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -277,6 +279,8 @@ body::-webkit-scrollbar-thumb {
     opacity: 0;
     animation: pop-appear 300ms ease-in-out 1 forwards;
     animation-delay: 100ms;
+    max-height: 40px;
+    overflow: hidden;
 }
 
 @keyframes pop-appear {

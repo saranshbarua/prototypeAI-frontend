@@ -7,34 +7,31 @@ class Popular extends Component {
     this.state = {
       title: '',
       desc: '',
+      image: '',
       pos: 0,
-      pPosts: [
-        {
-          'tit': 'Eastern pots',
-          'description': 'Using lorem ipsum to focus attention on graphic elements.' 
-        },
-        {
-          'tit': 'Handicrafts design course',
-          'description': 'Handicrafts design course for students interested in learning hand made stuff.' 
-        },
-        {
-          'tit': 'Eastern pots',
-          'description': 'Using lorem ipsum to focus attention on graphic elements.' 
-        },
-        {
-          'tit': 'Free zumba classes',
-          'description': 'Let your child first steps be marked in zumba. Specialized in 13 categories.'
-        }
-      ]
+      pPosts: []
     }
 
     this.changePost = this.changePost.bind(this);
   }
 
   componentDidMount() {
-    this.setState({
-      title: this.state.pPosts[0].tit,
-      desc: this.state.pPosts[0].description
+
+    fetch('http://localhost:3000/posts').then(res => res.json()).then(
+      (result) => {
+        this.setState({
+          pPosts: result
+        })
+      }
+    ).then(() => {
+      this.state.pPosts.sort((a,b) => {
+        return b.likes - a.likes
+      })  
+    }).then(() => {
+      this.setState({
+        desc: this.state.pPosts[0].description,
+        image: this.state.pPosts[0].imageUrl
+      })
     })
   }
 
@@ -50,20 +47,23 @@ class Popular extends Component {
     this.setState({
       pos: nextPos,
       title: this.state.pPosts[nextPos].tit,
-      desc: this.state.pPosts[nextPos].description
+      desc: this.state.pPosts[nextPos].description,
+      image: this.state.pPosts[nextPos].imageUrl
     })
    }
 
   render() {
 
+
+
     return (
       <div className="popular-back">
         <div className="popular-container">
           <div className="popular-img">
-            {/* <img src="" alt="Popular posts"/> */}
+            <img src={this.state.image} style={{height: 'auto', width: '100%'}} alt="Popular posts"/>
           </div>
           <p className="ssp-400" style={{color: 'rgb(33, 150, 243)', marginLeft: '15px', fontSize: '13px'}}>Popular</p>
-          <span className="popular-title ssp-400">{this.state.title}</span>
+          {/* <span className="popular-title ssp-400">{this.state.title}</span> */}
           <p className="popular-desc ssp-400">{this.state.desc}</p>
           <div className="pop-next-container ssp-400"><button onClick={this.changePost} className="next-pop-button ssp-400">Next post</button></div>
         </div>
