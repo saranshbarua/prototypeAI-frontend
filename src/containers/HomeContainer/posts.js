@@ -7,17 +7,33 @@ library.add(faThumbsUp, faComments);
 
 export default class Posts extends Component {
 
-  render() {
-    return (
-      <div className="post-container">
+  constructor(props) {
+    super (props);
+    this.state = {
+      posts: []
+    }
+  }
+  
+  componentDidMount(){
+    fetch('http://localhost:3000/posts').then(response => response.json())
+    .then((result) => {
+       this.setState({
+         posts: result
+       })
+     }
+    )
+  }
 
-        <div className="post-box">
+  render() {
+
+    const postList = this.state.posts.map((post,i) => (
+        <div key={i} className="post-box">
             <div className="post-by-info">
                 <div className="post-by-img">
                     <img src="https://avatars2.githubusercontent.com/u/13121330?s=460&v=4" alt="profileimg" className="post-img" />
                 </div>
                 <div className="post-by-desc">
-                    <span className="post-by-user ssp-400">Aditya Dimri</span>
+                    <span className="post-by-user ssp-400">{post.author}</span>
                     <span className="post-by-role ssp-400">Evangelist</span>
                 </div>
                 <div className="post-timestamp">
@@ -47,8 +63,12 @@ export default class Posts extends Component {
                 </button>
             </div>
         </div>
+    ))
 
-        <div className="post-box">
+    return (
+      <div className="post-container">
+        {postList}
+        {/* <div className="post-box">
             <div className="post-by-info">
                 <div className="post-by-img">
                     <img src="https://avatars2.githubusercontent.com/u/20930496?s=400&v=4" alt="profileimg" className="post-img" />
@@ -194,7 +214,7 @@ export default class Posts extends Component {
                     <span className="ssp-400" style={{color: '#90a4ae', marginLeft: '10px'}}>12</span>
                 </button>
             </div>
-        </div>
+        </div> */}
 
       </div>
     )

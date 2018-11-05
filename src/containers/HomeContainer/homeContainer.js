@@ -5,6 +5,7 @@ import UploadBox from './uploadPosts'
 import Posts from './posts'
 
 class HomeContainer extends Component {
+
   render() {
     return (
       <div className="home-con">
