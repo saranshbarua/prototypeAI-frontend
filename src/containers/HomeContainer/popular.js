@@ -53,9 +53,6 @@ class Popular extends Component {
    }
 
   render() {
-
-
-
     return (
       <div className="popular-back">
         <div className="popular-container">
