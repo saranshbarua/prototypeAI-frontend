@@ -539,8 +539,9 @@ body::-webkit-scrollbar-thumb {
 
 .post-desc {
     max-width: 100%;
+    word-break: break-word;
     min-height: 70px;
-    padding: 15px;
+    padding: 17px 20px 15px 23px;
     margin-top: -5px;
     color: #263238;
     font-size: 16px;
