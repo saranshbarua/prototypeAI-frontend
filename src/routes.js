@@ -16,11 +16,13 @@ const Routes = () => {
     <Switch>
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup}/>
-      <Layout>
+      <Layout loggedIn="Saransh Barua">
           <Route path="/user/groups" exact component={Groups}/>
           <Route path="/groupchat" exact component={GroupChat} />
           <Route path="/user/profile" exact component={UserSettings} />
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact 
+            render = {(routeProps) => (<Home {...routeProps} loggedIn = "Saransh Barua" />)}
+          />
       </Layout>
     </Switch>
   )

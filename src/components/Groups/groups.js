@@ -23,11 +23,15 @@ export default class Groups extends Component {
       })
   }
 
+  handleClick() {
+    this.props.history.push('/groupchat')
+  }
+
   render() {
 
     const groupList = this.state.groups.map((group,key) => {
       return (
-        <div className="group-card">
+        <div key={ key } onClick = {(e) => this.handleClick(e)} className="group-card">
           <p className="group-name ssp-300">{ group.name }</p>
           <p className="group-topic ssp-400">
             { group.bio }

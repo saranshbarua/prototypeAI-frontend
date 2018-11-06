@@ -25,7 +25,20 @@ export default class Posts extends Component {
   }
 
   likePost(i) {
-    alert(`You liked ${this.state.posts[i].author}'s post`);
+    console.log(`You liked ${this.state.posts[i].author}'s post`);
+    fetch(`http://localhost:3000/${i}`, {
+      method: "PUT",
+      body: {
+        "likes": this.state.posts[i].likes + 1
+      },
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function(response) {
+      return response.text()
+    }, function(error) {
+      console.log(error.message)
+    })
   }
 
   render() {
