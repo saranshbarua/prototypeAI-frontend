@@ -9,7 +9,18 @@ export default class uploadPosts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postDescription: ''
+      author: this.props.loggedIn,
+      authorTitle: "Designer",
+      authorAvatar: "https://avatars1.githubusercontent.com/u/23500643?s=400&u=9611ca60ed6b48103c3272a195b68702e287757e&v=4",
+      timePosted: "",
+      postDescription: "",
+      imageUrl: "https://archive-media-0.nyafuu.org/wg/image/1402/38/1402382992081.jpg",
+      likes: 1184,
+      comments: [
+        "",
+        "",
+        ""
+      ]
     }
   }
 
@@ -19,8 +30,25 @@ export default class uploadPosts extends Component {
     })
   }
 
-  uploadPost() {
+  uploadPost(event) {
+    event.preventDefault();
+    let data = {
+      "author": this.state.author,
+      "authorTitle": this.state.authorTitle,
+      "authorAvatar": this.state.authorAvatar,
+      "timePosted": "",
+      "description": this.state.postDescription,
+      "imageUrl": this.state.imageUrl,
+      "likes": this.state.likes,
+      "comments": this.state.comments
+    }
+    fetch('http://localhost:3000/posts', {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    }).then((res) => console.log(res.json))
     console.log('Form Submitted');
+
   }
 
   render() {
@@ -40,7 +68,7 @@ export default class uploadPosts extends Component {
               size="sm"
             />
           </div>
-          <button className="upload-button ssp-400">Upload</button> 
+          <button onClick={(e) => {this.uploadPost(e)}} className="upload-button ssp-400">Upload</button> 
         </div>
       </form>
     )
