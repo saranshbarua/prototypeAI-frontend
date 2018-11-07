@@ -34,7 +34,7 @@ export default class Suggestions extends Component {
       return (
         <div className="sugg-box" key = {key}>
           <div className="sugg-avatar">
-            <img src="https://avatars0.githubusercontent.com/u/23500643?v=3&s=100" alt="" className="sugg-img" />
+            <img src={ user.userAvatar } alt="" className="sugg-img" />
           </div>
           <div className="sugg-desc ssp-400">
             <span style={{color: '#2196f3'}}>{ user.displayName }</span>
