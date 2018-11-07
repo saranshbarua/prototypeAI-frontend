@@ -7,6 +7,14 @@ library.add(faPlus);
 
 export default class Suggestions extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      suggestedUsers: [],
+      loggedInUser: '',
+    }
+  }
+
   render() {
     return (
       <div className="suggestion-container">
