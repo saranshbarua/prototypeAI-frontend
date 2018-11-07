@@ -30,8 +30,6 @@ export default class Suggestions extends Component {
   render() {
     const lengthOfUsers = this.state.suggestedUsers.length;
     this.state.suggestedUsers.splice(3,lengthOfUsers - 3);
-    console.log(this.state.suggestedUsers);
-
     const showTopThree = this.state.suggestedUsers.map((user, key) => {
       return (
         <div className="sugg-box" key = {key}>
