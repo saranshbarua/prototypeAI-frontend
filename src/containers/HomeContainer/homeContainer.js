@@ -12,7 +12,7 @@ class HomeContainer extends Component {
         {console.log(`currently logged in as ${this.props.loggedIn}`)}
         <div className="home-con-left">
             <UploadBox loggedIn = {this.props.loggedIn}/>
-            <Posts />
+            <Posts loggedIn = {this.props.loggedIn}/>
         </div>
         <div className="home-con-right">
            <Popular />

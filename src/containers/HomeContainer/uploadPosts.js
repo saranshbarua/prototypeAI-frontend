@@ -32,11 +32,12 @@ export default class uploadPosts extends Component {
 
   uploadPost(event) {
     event.preventDefault();
+    var d = new Date(); 
     let data = {
       "author": this.state.author,
       "authorTitle": this.state.authorTitle,
       "authorAvatar": this.state.authorAvatar,
-      "timePosted": "",
+      "timePosted": d.toLocaleString(),
       "description": this.state.postDescription,
       "imageUrl": this.state.imageUrl,
       "likes": this.state.likes,
@@ -47,8 +48,12 @@ export default class uploadPosts extends Component {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     }).then((res) => console.log(res.json))
+    .then(() => (
+      this.setState({
+        postDescription: ''
+      })
+    ))
     console.log('Form Submitted');
-
   }
 
   render() {

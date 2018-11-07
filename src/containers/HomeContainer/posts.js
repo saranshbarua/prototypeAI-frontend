@@ -42,7 +42,9 @@ export default class Posts extends Component {
   }
 
   render() {
-    const postList = this.state.posts.map((post,i) => (
+
+    const postList = this.state.posts.reverse();
+    const finalPostList = postList.map((post,i) => (
         <div key={i} className="post-box">
             <div className="post-by-info">
                 <div className="post-by-img">
@@ -53,7 +55,7 @@ export default class Posts extends Component {
                     <span className="post-by-role ssp-400">{ post.authorTitle}</span>
                 </div>
                 <div className="post-timestamp">
-                    <span className="p-ts ssp-400">35 mins ago</span>
+                    <span className="p-ts ssp-400">{ post.timePosted }</span>
                 </div>
             </div>
             <p className="post-desc ssp-400">{ post.description }</p>
@@ -81,7 +83,7 @@ export default class Posts extends Component {
 
     return (
       <div className="post-container">
-        {postList}
+        {finalPostList}
       </div>
     )
   }
