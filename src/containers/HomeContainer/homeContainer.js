@@ -16,7 +16,7 @@ class HomeContainer extends Component {
         </div>
         <div className="home-con-right">
            <Popular />
-           <Suggestions />
+           <Suggestions loggedIn = {this.props.loggedIn} />
         </div>
       </div>
     )
