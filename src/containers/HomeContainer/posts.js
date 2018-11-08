@@ -10,7 +10,8 @@ export default class Posts extends Component {
   constructor(props) {
     super (props);
     this.state = {
-      posts: []
+      posts: [],
+      likePostData: {},
     }
   }
   
@@ -26,19 +27,29 @@ export default class Posts extends Component {
 
   likePost(i) {
     console.log(`You liked ${this.state.posts[i].author}'s post`);
-    fetch(`http://localhost:3000/${i}`, {
-      method: "PUT",
-      body: {
-        "likes": this.state.posts[i].likes + 1
-      },
-      headers: {
-        "Content-Type": "application/json"
+    fetch(`http://localhost:3000/posts/${i+1}`).then(
+      (res) => (res.json())
+    ).then(
+      (result) => {
+        this.setState({
+          likedPostData: JSON.stringify(result)
+        });
+        console.log(this.state.likedPostData);
       }
-    }).then(function(response) {
-      return response.text()
-    }, function(error) {
-      console.log(error.message)
-    })
+    ).then(
+      fetch(`http://localhost:3000/posts/${i+1}`, {
+        method: "PUT",
+        body: this.state.likedPostData,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function(response) {
+        console.log(response.text);
+        return response.text();
+      }, function(error) {
+        console.log(error.message)
+      })
+    )
   }
 
   render() {
