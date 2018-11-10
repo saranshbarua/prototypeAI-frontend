@@ -11,7 +11,7 @@ export default class Posts extends Component {
     super (props);
     this.state = {
       posts: [],
-      likePostData: {},
+      likedPostData: {}
     }
   }
   
@@ -26,35 +26,41 @@ export default class Posts extends Component {
   }
 
   likePost(i) {
-    console.log(`You liked ${this.state.posts[i].author}'s post`);
     fetch(`http://localhost:3000/posts/${i+1}`).then(
       (res) => (res.json())
     ).then(
       (result) => {
         this.setState({
-          likedPostData: JSON.stringify(result)
+          likedPostData: result
         });
-        console.log(this.state.likedPostData);
+        // console.log(JSON.stringify({...this.state.likedPostData, "likes": this.state.likedPostData.likes + 1}))
       }
-    ).then(
+    )
+    .then(
       fetch(`http://localhost:3000/posts/${i+1}`, {
-        method: "PUT",
-        body: this.state.likedPostData,
+        method: 'PATCH',
+        body: JSON.stringify({
+          "likes": (this.state.likedPostData.likes + 1)
+        }),
         headers: {
-          "Content-Type": "application/json"
+          "Content-type": "application/json; charset=UTF-8"
         }
-      }).then(function(response) {
-        console.log(response.text);
-        return response.text();
-      }, function(error) {
-        console.log(error.message)
+      }).then((response) => {
+        if(response.ok) {
+          return response.json();
+        } else {
+            throw new Error('Server response wasn\'t OK');
+        }
       })
     )
   }
 
   render() {
-
-    const postList = this.state.posts.reverse();
+    const postList = this.state.posts.sort(
+      (a,b) => {
+        return b.timePosted - a.timePosted
+      }
+    ).reverse();
     const finalPostList = postList.map((post,i) => (
         <div key={i} className="post-box">
             <div className="post-by-info">
