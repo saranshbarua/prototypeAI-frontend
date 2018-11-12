@@ -14,10 +14,15 @@ const SidenavItems = () => {
             text: 'Timeline',
             link: '/'
         },
+        // {
+        //     icon: 'user',
+        //     text: 'Notifications',
+        //     link: '/notifications'
+        // },
         {
             icon: 'user',
-            text: 'Notifications',
-            link: '/notifications'
+            text: 'Network requests',
+            link: '/:user/requests'
         },
         {
             icon: 'envelope',
