@@ -14,7 +14,7 @@ export default class uploadPosts extends Component {
       authorAvatar: "https://avatars1.githubusercontent.com/u/23500643?s=400&u=9611ca60ed6b48103c3272a195b68702e287757e&v=4",
       timePosted: "",
       postDescription: "",
-      imageUrl: "https://archive-media-0.nyafuu.org/wg/image/1402/38/1402382992081.jpg",
+      imageUrl: "https://gozags.com/images/2015/8/31/8870367.jpeg",
       likes: 1184,
       comments: [
         "",

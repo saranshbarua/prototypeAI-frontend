@@ -10,6 +10,7 @@ import Signup from './containers/Signup/signup';
 import Groups from './components/Groups/groups';
 import GroupChat from './components/GroupChat/groupChat';
 import UserSettings from './components/UserSettings/UserContainer';
+import NetworkRequests from './components/NetworkRequests/networkRequest';
 
 const Routes = () => {
   return (
@@ -20,6 +21,7 @@ const Routes = () => {
           <Route path="/user/groups" exact component={Groups}/>
           <Route path="/groupchat" exact component={GroupChat} />
           <Route path="/user/profile" exact component={UserSettings} />
+          <Route path="/:user/requests" component={NetworkRequests} />
           <Route path="/" exact 
             render = {(routeProps) => (<Home {...routeProps} loggedIn = "Saransh Barua" />)}
           />
