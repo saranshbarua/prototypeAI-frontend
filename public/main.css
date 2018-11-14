@@ -964,3 +964,16 @@ body::-webkit-scrollbar-thumb {
     margin-top: 110px;
     font-size: 35px;
 }
+
+.user-designation {
+    font-size: 20px;
+    color: #445a64;
+}
+
+.user-bio {
+    margin: 13px 8px;
+    padding: 10px;
+    display: flex;
+    align-self: center;
+    word-break: break-word;
+}
