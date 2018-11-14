@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 library.add(faNewspaper, faUser, faEnvelope, faImage, faWrench, faUsers, faPowerOff);
 
-const SidenavItems = () => {
+const SidenavItems = (props) => {
 
     const items = [
         {
@@ -27,7 +27,7 @@ const SidenavItems = () => {
         {
             icon: 'user',
             text: 'Profile',
-            link: '/profile'
+            link: `/profile/${props.loggedIn}`
         },
         {
             icon: 'image',

@@ -14,7 +14,8 @@ export default class UserProfile extends Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/posts').then(response => response.json())
+    console.log(`Hey ${this.props.match.params.id}`)
+    fetch(`http://localhost:3000/posts?author=${this.props.match.params.id}`).then(response => response.json())
     .then((result) => {
        this.setState({
          posts: result
@@ -24,7 +25,7 @@ export default class UserProfile extends Component {
   }
 
   render() {
-    const finalPostList = this.state.posts.map((post,i) => (
+    const userPostList = this.state.posts.map((post,i) => (
         <div key={i} className="post-box">
             <div className="post-by-info">
                 <div className="post-by-img">
@@ -71,7 +72,7 @@ export default class UserProfile extends Component {
 
         <div className="up-down">
           <div className="user-posts">
-            {finalPostList}
+            {userPostList}
           </div>
 
           <div className="user-info">

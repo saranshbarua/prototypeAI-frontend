@@ -948,13 +948,13 @@ body::-webkit-scrollbar-thumb {
 
 .user-posts {
     /* border: 1px solid red; */
-    width: 69%;
+    width: 67.5%;
     padding: 30px;
 }
 
 .user-info {
     /* border: 1px solid orange; */
-    width: 31%;
+    width: 32.5%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1009,6 +1009,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .lb {
+    display: none;
     position: fixed;
     right: 24%;
     top: 50%;

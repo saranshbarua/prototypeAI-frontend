@@ -22,7 +22,7 @@ const Routes = () => {
           <Route path="/user/groups" exact component={Groups}/>
           <Route path="/groupchat" exact component={GroupChat} />
           <Route path="/user/profile" exact component={UserSettings} />
-          <Route path="/profile" exact component={UserProfile} />
+          <Route path="/profile/:id" exact component={UserProfile} />
           <Route path="/:user/requests" component={NetworkRequests} />
           <Route path="/" exact 
             render = {(routeProps) => (<Home {...routeProps} loggedIn = "Saransh Barua" />)}
