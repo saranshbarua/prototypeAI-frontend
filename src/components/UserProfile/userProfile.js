@@ -22,6 +22,7 @@ export default class UserProfile extends Component {
         interests: [],
         skills: [],
         designation: "",
+        bio: "",
         Address: ""
       }
     }
@@ -111,9 +112,7 @@ export default class UserProfile extends Component {
             <div className="lb"></div>
             <div className="dis-name ssp-300">{this.state.userDetails.displayName}</div>
             <div className="user-designation ssp-400">{this.state.userDetails.designation} | 5 </div>
-            <p className="user-bio ssp-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <p className="user-bio ssp-400">{this.state.userDetails.bio}</p>
             <span className="ssp-400" style={{alignSelf: 'flex-start', marginLeft: '20px'}}>Skills</span>
             <div className="user-skills">
               {us}
