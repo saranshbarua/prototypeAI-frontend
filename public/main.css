@@ -900,3 +900,20 @@ body::-webkit-scrollbar-thumb {
     box-shadow: 0px 4px 7px 1px rgba(0,0,0,0.08);
     margin-top: 20px;
 }
+
+/* User Profile */
+
+.up-container {
+    position: relative;
+    left: 22vw;
+    width: 78vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}

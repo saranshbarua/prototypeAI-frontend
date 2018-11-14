@@ -20,14 +20,14 @@ const SidenavItems = () => {
         //     link: '/notifications'
         // },
         {
-            icon: 'user',
+            icon: 'envelope',
             text: 'Network requests',
             link: '/:user/requests'
         },
         {
-            icon: 'envelope',
-            text: 'Message',
-            link: '/message'
+            icon: 'user',
+            text: 'Profile',
+            link: '/profile'
         },
         {
             icon: 'image',
