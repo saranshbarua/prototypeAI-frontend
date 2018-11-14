@@ -86,6 +86,14 @@ export default class UserProfile extends Component {
         </div>
     ))
 
+    const us = this.state.userDetails.skills.map((skill,i) => (
+      <div key={i} className="uskill ssp-400">{skill}</div>
+    ))
+
+    const ui = this.state.userDetails.interests.map((interest,i) => (
+      <div key={i} className="uskill ssp-400">{interest}</div>
+    ))
+
     return (
       <div className="up-container">
         <div className="user-cover">
@@ -108,21 +116,11 @@ export default class UserProfile extends Component {
             </p>
             <span className="ssp-400" style={{alignSelf: 'flex-start', marginLeft: '20px'}}>Skills</span>
             <div className="user-skills">
-              <div className="uskill ssp-400">Design</div>
-              <div className="uskill ssp-400">Cooking</div>
-              <div className="uskill ssp-400">Developing</div>
-              <div className="uskill ssp-400">Direction</div>
+              {us}
             </div>
             <span className="ssp-400" style={{alignSelf: 'flex-start', marginLeft: '20px'}}>Interests</span>
             <div className="user-skills">
-              <div className="uskill ssp-400">Design</div>
-              <div className="uskill ssp-400">Cooking</div>
-              <div className="uskill ssp-400">Developing</div>
-              <div className="uskill ssp-400">Direction</div>
-              <div className="uskill ssp-400">Design</div>
-              <div className="uskill ssp-400">Cooking</div>
-              <div className="uskill ssp-400">Developing</div>
-              <div className="uskill ssp-400">Direction</div>
+              {ui}
             </div>
           </div>
         </div>
