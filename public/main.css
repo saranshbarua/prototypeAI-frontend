@@ -958,6 +958,7 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
 }
 
 .dis-name {
@@ -1004,4 +1005,13 @@ body::-webkit-scrollbar-thumb {
     color: #607d8b;
     background-color: #fafafa;
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.lb {
+    position: absolute;
+    left: -10px;
+    top: 40%;
+    width: 2px;
+    height: 180px;
+    background-color: #cfd8dc;
 }

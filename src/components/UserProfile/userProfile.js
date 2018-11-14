@@ -11,8 +11,12 @@ export default class UserProfile extends Component {
         </div>
 
         <div className="up-down">
-          <div className="user-posts"></div>
+          <div className="user-posts">
+
+          </div>
+
           <div className="user-info">
+            <div className="lb"></div>
             <div className="dis-name ssp-300">Saransh Barua</div>
             <div className="user-designation ssp-400">Designer | 5 </div>
             <p className="user-bio ssp-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
