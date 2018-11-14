@@ -949,6 +949,7 @@ body::-webkit-scrollbar-thumb {
 .user-posts {
     /* border: 1px solid red; */
     width: 69%;
+    padding: 30px;
 }
 
 .user-info {
@@ -1008,9 +1009,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .lb {
-    position: absolute;
-    left: -10px;
-    top: 40%;
+    position: fixed;
+    right: 24%;
+    top: 50%;
     width: 2px;
     height: 180px;
     background-color: #cfd8dc;
