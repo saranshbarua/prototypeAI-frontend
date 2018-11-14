@@ -937,3 +937,30 @@ body::-webkit-scrollbar-thumb {
     bottom: -100px;
     background-color: #263238;
 }
+
+.up-down {
+    width: 100%;
+    min-height: 50vh;
+    border: 1px solid;
+    margin-left: -9px;
+    display: flex;
+}
+
+.user-posts {
+    border: 1px solid red;
+    width: 69%;
+}
+
+.user-info {
+    border: 1px solid orange;
+    width: 31%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dis-name {
+    margin-top: 110px;
+    font-size: 35px;
+}
