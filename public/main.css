@@ -936,6 +936,7 @@ body::-webkit-scrollbar-thumb {
     right: 50px;
     bottom: -100px;
     background-color: #263238;
+    overflow: hidden;
 }
 
 .up-down {

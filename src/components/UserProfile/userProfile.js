@@ -9,18 +9,42 @@ export default class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: []
+      posts: [],
+      userDetails: {
+        id: null,
+        displayName: "",
+        userAvatar: "",
+        username: "",
+        email: "",
+        password: "",
+        location: [],
+        network: [],
+        interests: [],
+        skills: [],
+        designation: "",
+        Address: ""
+      }
     }
   }
 
   componentDidMount(){
-    console.log(`Hey ${this.props.match.params.id}`)
-    fetch(`http://localhost:3000/posts?author=${this.props.match.params.id}`).then(response => response.json())
-    .then((result) => {
-       this.setState({
-         posts: result
-       })
-     }
+    fetch(`http://localhost:3000/user?displayName=${this.props.match.params.id}`)
+    .then(res => res.json()).then(
+      (result) => {
+        this.setState({
+          userDetails: result[0]
+        });
+        console.log(this.state.userDetails);
+      }
+    )
+    .then(
+      fetch(`http://localhost:3000/posts?author=${this.props.match.params.id}`).then(response => response.json())
+        .then((result) => {
+          this.setState({
+            posts: result
+          })
+        }
+        )
     )
   }
 
@@ -66,7 +90,7 @@ export default class UserProfile extends Component {
       <div className="up-container">
         <div className="user-cover">
           <div className="user-dp">
-      
+            <img src={this.state.userDetails.userAvatar} height="100%" alt="Avatar"/>
           </div>
         </div>
 
@@ -77,8 +101,8 @@ export default class UserProfile extends Component {
 
           <div className="user-info">
             <div className="lb"></div>
-            <div className="dis-name ssp-300">Saransh Barua</div>
-            <div className="user-designation ssp-400">Designer | 5 </div>
+            <div className="dis-name ssp-300">{this.state.userDetails.displayName}</div>
+            <div className="user-designation ssp-400">{this.state.userDetails.designation} | 5 </div>
             <p className="user-bio ssp-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
