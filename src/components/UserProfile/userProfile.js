@@ -35,7 +35,6 @@ export default class UserProfile extends Component {
         this.setState({
           userDetails: result[0]
         });
-        console.log(this.state.userDetails);
       }
     )
     .then(
