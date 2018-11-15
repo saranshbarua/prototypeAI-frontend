@@ -1,6 +1,7 @@
 import React from 'react'
 
 const ProfileBox = (props) => {
+  console.log(props)
   return (
     <div className="profile-box">
        <div className="img-container">

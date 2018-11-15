@@ -8,7 +8,7 @@ export default class Sidenav extends Component {
     return (
       <div className="sidenav">
         <Search />
-        <ProfileBox name = "Saransh Barua" />
+        <ProfileBox loggedIn={this.props.loggedIn} />
         <SidenavItems loggedIn={this.props.loggedIn} />
       </div>
     )
