@@ -30,11 +30,6 @@ const SidenavItems = (props) => {
             link: `/profile/${props.loggedIn}`
         },
         {
-            icon: 'image',
-            text: 'Gallery',
-            link: '/gallery'
-        },
-        {
             icon: 'wrench',
             text: 'Settings',
             link: '/user/profile'
