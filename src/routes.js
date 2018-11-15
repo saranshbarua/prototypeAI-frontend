@@ -12,6 +12,7 @@ import GroupChat from './components/GroupChat/groupChat';
 import UserSettings from './components/UserSettings/UserContainer';
 import NetworkRequests from './components/NetworkRequests/networkRequest';
 import UserProfile from './components/UserProfile/userProfile';
+import SearchForm from './components/Search/searchForm';
 
 const Routes = () => {
   return (
@@ -22,6 +23,7 @@ const Routes = () => {
           <Route path="/user/groups" exact component={Groups}/>
           <Route path="/groupchat" exact component={GroupChat} />
           <Route path="/user/profile" exact component={UserSettings} />
+          <Route path="/search" exact component={SearchForm} />
           <Route path="/profile/:id" exact component={UserProfile} />
           <Route path="/:user/requests" component={NetworkRequests} />
           <Route path="/" exact 

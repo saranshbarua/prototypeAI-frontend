@@ -28,7 +28,7 @@ export default class Search extends Component {
     const redirection = this.state.redirect;
     if(redirection) {
       return <Redirect to={{
-        pathname: '/groupchat',
+        pathname: `/profile/${this.state.searchedValue}`,
         state: {
           searchedFor: this.state.searchedValue
         }
