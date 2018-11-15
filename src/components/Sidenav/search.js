@@ -5,6 +5,7 @@ export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      inputValue: '',
       searchedValue: '',
       redirect: false
     }
@@ -12,6 +13,7 @@ export default class Search extends Component {
 
   handleChange(event) {
     this.setState({
+      inputValue: event.target.value,
       searchedValue: event.target.value
     })
   }
@@ -19,7 +21,8 @@ export default class Search extends Component {
   submitForm(event) {
     event.preventDefault();
     this.setState({
-      redirect: true
+      redirect: true,
+      inputValue: ''
     });
     console.log(this.state.searchedValue)
   }
