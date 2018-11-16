@@ -26,9 +26,7 @@ const Routes = () => {
           <Route path="/search" exact component={SearchForm} />
           <Route path="/profile/:id" exact component={UserProfile} />
           <Route path="/:user/requests" component={NetworkRequests} />
-          <Route path="/" exact 
-            render = {(routeProps) => (<Home {...routeProps} loggedIn = "Saransh Barua" />)}
-          />
+          <Route path="/" exact component={Home}/>
       </Layout>
     </Switch>
   )
