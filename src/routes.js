@@ -19,7 +19,7 @@ const Routes = () => {
     <Switch>
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup}/>
-      <Layout loggedIn="Saransh Barua">
+      <Layout>
           <Route path="/user/groups" exact component={Groups}/>
           <Route path="/groupchat" exact component={GroupChat} />
           <Route path="/user/profile" exact component={UserSettings} />

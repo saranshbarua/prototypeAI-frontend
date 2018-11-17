@@ -3,7 +3,7 @@ import HomeContainer from '../../containers/HomeContainer/homeContainer'
 
 const Home = (props) => {
 
-  const noOfPosts = 5;
+  const noOfPosts = 10;
   const backgroundHeight = `${(noOfPosts * 100)}vh`;
 
   return (
