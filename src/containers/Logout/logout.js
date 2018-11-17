@@ -18,7 +18,7 @@ export default class Logout extends Component {
 
   componentDidMount() {
     localStorage.setItem('loggedInUser', this.state.clearUser);
-    setTimeout(this.setstate,2000);
+    setTimeout(this.setstate,1000);
   }
 
 
