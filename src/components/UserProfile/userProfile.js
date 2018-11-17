@@ -29,7 +29,7 @@ export default class UserProfile extends Component {
   }
 
   componentDidMount(){
-    fetch(`http://localhost:3000/user?displayName=${this.props.match.params.id}`)
+    fetch(`http://localhost:3000/user?username=${this.props.match.params.id}`)
     .then(res => res.json()).then(
       (result) => {
         this.setState({
@@ -38,7 +38,7 @@ export default class UserProfile extends Component {
       }
     )
     .then(
-      fetch(`http://localhost:3000/posts?author=${this.props.match.params.id}`).then(response => response.json())
+      fetch(`http://localhost:3000/posts?author=${this.state.userDetails.displayName}`).then(response => response.json())
         .then((result) => {
           this.setState({
             posts: result
