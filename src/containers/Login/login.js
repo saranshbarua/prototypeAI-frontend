@@ -8,7 +8,8 @@ export default class Login extends Component {
       username: '',
       password: '',
       error: '',
-      success: false
+      success: false,
+      LoggedIn: false
     }
   }
 
@@ -35,6 +36,9 @@ export default class Login extends Component {
   }
   
   render() {
+    if(localStorage.getItem('loggedInUser') !== '') {
+      return <Redirect to="/" />
+    }
     if(this.state.success) {
       return <Redirect to={{
         pathname: '/',
