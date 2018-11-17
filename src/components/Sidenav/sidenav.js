@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Search from './search'
-import ProfileBox from './profile'
+import ProfileBox from './profileBox'
 import SidenavItems from './sidenavItems'
 
 export default class Sidenav extends Component {
