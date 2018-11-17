@@ -29,7 +29,8 @@ export default class Login extends Component {
     if(this.state.password === 'abc') {
       this.setState({
         success: true
-      })
+      });
+      localStorage.setItem('loggedInUser',this.state.username)
     }
   }
   
