@@ -43,7 +43,7 @@ export default class Search extends Component {
           onChange={(e) => (this.handleChange(e))} value={this.state.searchedValue}
           onSubmit={(e) => (this.submitForm(e))}
         >
-          <input className="search-input ssp-600" placeholder="Search" />        
+          <input className="search-input ssp-600" placeholder="Search username" />        
         </form>
       </div>
     )

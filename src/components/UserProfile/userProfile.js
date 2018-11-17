@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faThumbsUp, faComments } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,7 +25,8 @@ export default class UserProfile extends Component {
         designation: "",
         bio: "",
         Address: ""
-      }
+      },
+      redirectIfError: false
     }
   }
 
@@ -36,7 +38,12 @@ export default class UserProfile extends Component {
           userDetails: result[0]
         });
       }
-    )
+    ).catch(() => {
+      alert('User not found');
+      this.setState({
+        redirectIfError: true
+      })     
+    })
     .then(
       fetch(`http://localhost:3000/posts?author=${this.props.match.params.id}`).then(response => response.json())
         .then((result) => {
@@ -45,10 +52,19 @@ export default class UserProfile extends Component {
           })
         }
         )
-    )
+    ).catch(() => {
+      this.setState({
+        redirectIfError: true
+      })
+    })
   }
 
   render() {
+    if(this.state.redirectIfError) {
+      return <Redirect to={{
+        pathname: `/`
+      }} />
+    }
     const userPostList = this.state.posts.map((post,i) => (
         <div key={i} className="post-box">
             <div className="post-by-info">
