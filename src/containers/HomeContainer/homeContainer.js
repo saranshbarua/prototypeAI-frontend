@@ -3,6 +3,7 @@ import Popular from './popular'
 import Suggestions from './suggestions'
 import UploadBox from './uploadPosts'
 import Posts from './posts'
+import { Redirect } from 'react-router-dom'
 
 class HomeContainer extends Component {
 
@@ -15,12 +16,17 @@ class HomeContainer extends Component {
 
   componentDidMount() {
     const User = localStorage.getItem('loggedInUser');
+    console.log(User);
     this.setState({
       loggedInUser: User
     })
   }
 
   render() {
+    if(localStorage.getItem('loggedinUser') === ''){
+      return <Redirect to="/login" />
+    }
+
     return (
       <div className="home-con">
         <div className="home-con-left">

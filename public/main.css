@@ -1018,3 +1018,14 @@ body::-webkit-scrollbar-thumb {
     height: 180px;
     background-color: #cfd8dc;
 }
+
+.logout-screen {
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}

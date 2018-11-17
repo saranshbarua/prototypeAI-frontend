@@ -13,12 +13,14 @@ import UserSettings from './components/UserSettings/UserContainer';
 import NetworkRequests from './components/NetworkRequests/networkRequest';
 import UserProfile from './components/UserProfile/userProfile';
 import SearchForm from './components/Search/searchForm';
+import Logout from './containers/Logout/logout';
 
 const Routes = () => {
   return (
     <Switch>
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup}/>
+      <Route path="/logout" component={Logout} />
       <Layout>
           <Route path="/user/groups" exact component={Groups}/>
           <Route path="/groupchat" exact component={GroupChat} />
