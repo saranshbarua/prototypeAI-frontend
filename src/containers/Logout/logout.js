@@ -10,11 +10,15 @@ export default class Logout extends Component {
     }
   }
 
-  componentDidMount() {
-    localStorage.setItem('loggedInUser', this.state.clearUser);
+  setstate = () => {
     this.setState({
       redirect: true
     })
+  }
+
+  componentDidMount() {
+    localStorage.setItem('loggedInUser', this.state.clearUser);
+    setTimeout(this.setstate,2000);
   }
 
 
