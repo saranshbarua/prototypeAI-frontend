@@ -59,9 +59,10 @@ export default class Network extends Component {
         <div className="ssp-300" style={{
           width: '100%',
           fontSize: '40px',
-          marginLeft: '50px',
-          marginTop: '30px',
-          marginBottom: '25px'
+          height: '120px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
         }}>
           Your Network
         </div>

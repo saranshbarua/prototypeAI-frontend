@@ -876,18 +876,6 @@ body::-webkit-scrollbar-thumb {
     padding: 10px 20px 15px 17px;
 }
 
-/* Network Requests */
-
-
-
-.network-req {
-    min-height: 120px;
-    width: 75%;
-    border-radius: 8px;
-    box-shadow: 0px 4px 7px 1px rgba(0,0,0,0.08);
-    margin-top: 20px;
-}
-
 /* User Profile */
 
 .up-container {
@@ -1083,4 +1071,66 @@ body::-webkit-scrollbar-thumb {
     color: #263238;
 }
 
+/* Network Requests */
 
+.network-req {
+    min-height: 120px;
+    width: 75%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #fafafa;
+}
+
+.req-avatar {
+    height: 85px;
+    width: 85px;
+    border-radius: 50%;
+    position: absolute;
+    left: 30px;
+    overflow: hidden;
+    /* top: 20px; */
+    border: 2px solid #ebedee;
+
+}
+
+.req-name {
+    position: absolute;
+    left: 138px;
+    top: 20px;
+    font-size: 23px;
+}
+
+.req-designation {
+    position: absolute;
+    left: 138px;
+    top: 50px;
+    font-size: 18px;
+    color: #607d8b;
+}
+
+.reject-req, .accept-req {
+    position: absolute;
+    height: 40px;
+    width: 130px;
+    border: 2px solid #2196f3;
+    font-size: 20px;
+}
+
+.reject-req {
+    top: 40px;
+    right: 170px;
+    background-color: #fafafa;
+}
+
+.accept-req {
+    top: 40px;
+    right: 20px;
+    background-color: #2196f3;
+    color: white;
+}
