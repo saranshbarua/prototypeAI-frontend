@@ -56,6 +56,15 @@ export default class Network extends Component {
     ))
     return (
       <div className="network-container">
+        <div className="ssp-300" style={{
+          width: '100%',
+          fontSize: '40px',
+          marginLeft: '50px',
+          marginTop: '30px',
+          marginBottom: '25px'
+        }}>
+          Your Network
+        </div>
         <div className="network-list">
           {networkList}
         </div>

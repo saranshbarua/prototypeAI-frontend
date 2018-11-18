@@ -878,20 +878,7 @@ body::-webkit-scrollbar-thumb {
 
 /* Network Requests */
 
-.network-container {
-    position: relative;
-    left: 22vw;
-    width: 78vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
+
 
 .network-req {
     min-height: 120px;
@@ -1031,6 +1018,21 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* Network */
+
+.network-container {
+    position: relative;
+    left: 22vw;
+    width: 78vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
 
 .network-list {
     display: flex;
