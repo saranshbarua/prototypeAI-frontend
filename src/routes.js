@@ -14,6 +14,7 @@ import Network from './components/Network/network';
 import UserProfile from './components/UserProfile/userProfile';
 import SearchForm from './components/Search/searchForm';
 import Logout from './containers/Logout/logout';
+import Requests from './components/Requests/requests';
 
 const Routes = () => {
   return (
@@ -28,6 +29,7 @@ const Routes = () => {
           <Route path="/search" exact component={SearchForm} />
           <Route path="/profile/:id" exact component={UserProfile} />
           <Route path="/network" component={Network} />
+          <Route path="/requests" component={Requests} />
           <Route path="/" exact component={Home}/>
       </Layout>
     </Switch>
