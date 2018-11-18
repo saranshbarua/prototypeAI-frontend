@@ -5,7 +5,8 @@ export default class Requests extends Component {
     super(props);
     this.state = {
       loggedUser: localStorage.getItem('loggedInUser'),
-      requestBy: []
+      requestBy: [],
+      requestByUserDetails: []
     }
   }
 
@@ -16,23 +17,31 @@ export default class Requests extends Component {
         requestBy: result[0].requestsBy
       })
     })
-  }    
+    .then(() => {
+      this.state.requestBy.map((user,i) => {
+        return fetch(`http://localhost:3000/user?username=${user.user}`).then(res => res.json())
+        .then((result) => {
+          let newDetails = this.state.requestByUserDetails.concat(result);
+          this.setState({
+            requestByUserDetails: newDetails
+          });
+        })
+      })
+    })
+  }   
 
   render() {
-    const pendingRequests = this.state.requestBy.filter((request) => {
-      return request.status === "pending"
-    })
-    return (
-      <div className="network-container">
-        <p className="ssp-300" style={{
-          fontSize: '40px'
-        }}>Network Requests</p>
-        <div className="network-req">
+    // const pendingRequests = this.state.requestBy.filter((request) => {
+    //   return request.status === "pending"
+    // });
+    const reqList = this.state.requestByUserDetails.map((req,i) => {
+      return (
+        <div key={i} className="network-req">
           <div className="req-avatar">
-            <img height="85px;" src="https://avatars3.githubusercontent.com/u/13121330?s=400&v=4" alt=""/>
+            <img height="85px;" src={req.userAvatar} alt=""/>
           </div>
-          <span className="req-name ssp-400">Ujjwal Sharma</span>
-          <span className="req-designation ssp-400">Evangelist</span>
+          <span className="req-name ssp-400">{req.displayName}</span>
+          <span className="req-designation ssp-400">{req.designation}</span>
           <span className="ssp-400" style={{
             position: 'absolute',
             top: '85px',
@@ -43,6 +52,14 @@ export default class Requests extends Component {
           <button className="reject-req ssp-400">Ignore</button>
           <button className="accept-req ssp-400">Accept</button>
         </div>
+      )
+    })
+    return (
+      <div className="network-container">
+        <p className="ssp-300" style={{
+          fontSize: '40px'
+        }}>Network Requests</p>
+        {reqList}
       </div>
     )
   }
