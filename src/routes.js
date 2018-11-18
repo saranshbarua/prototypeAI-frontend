@@ -10,7 +10,7 @@ import Signup from './containers/Signup/signup';
 import Groups from './components/Groups/groups';
 import GroupChat from './components/GroupChat/groupChat';
 import UserSettings from './components/UserSettings/UserContainer';
-import NetworkRequests from './components/NetworkRequests/networkRequest';
+import Network from './components/Network/network';
 import UserProfile from './components/UserProfile/userProfile';
 import SearchForm from './components/Search/searchForm';
 import Logout from './containers/Logout/logout';
@@ -27,7 +27,7 @@ const Routes = () => {
           <Route path="/user/profile" exact component={UserSettings} />
           <Route path="/search" exact component={SearchForm} />
           <Route path="/profile/:id" exact component={UserProfile} />
-          <Route path="/:user/requests" component={NetworkRequests} />
+          <Route path="/network" component={Network} />
           <Route path="/" exact component={Home}/>
       </Layout>
     </Switch>

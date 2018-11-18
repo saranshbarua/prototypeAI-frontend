@@ -21,8 +21,8 @@ const SidenavItems = (props) => {
         // },
         {
             icon: 'envelope',
-            text: 'Network requests',
-            link: '/:user/requests'
+            text: 'Network',
+            link: '/network'
         },
         {
             icon: 'user',
