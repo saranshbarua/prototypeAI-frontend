@@ -34,31 +34,26 @@ export default class Network extends Component {
 
   render() {
     const networkList = this.state.networkDetails.map((user,i) => (
-      <div key={i}>
-        {user.displayName}
+      <div className="network-card" key={i}>
+        <div className="net-cover">
+          <div className="net-avatar">
+            <img height="100%" src={user.userAvatar} alt=""/>
+          </div>
+        </div>
+        <span className="net-name ssp-400">
+          {user.displayName}
+        </span>
+        <span className="ssp-400" style={{
+          color: '#445a64'
+        }}>
+          {user.designation}
+        </span>
       </div>
     ))
     return (
       <div className="network-container">
-        {/* <div className="network-req">
-            {networkList}
-        </div> */}
         <div className="network-list">
-          <div className="network-card">
-            <div className="net-cover">
-              <div className="net-avatar">
-                <img height="100px" src="https://avatars3.githubusercontent.com/u/13121330?s=400&v=4" alt=""/>
-              </div>
-            </div>
-            <span className="net-name ssp-400">
-              Ujjwal Sharma
-            </span>
-            <span className="ssp-400" style={{
-              color: '#445a64'
-            }}>
-              Evangelist
-            </span>
-          </div>
+          {networkList}
         </div>
       </div>
     )
