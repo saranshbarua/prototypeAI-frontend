@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faNewspaper, faUser, faEnvelope, faImage, faWrench, faUsers, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { faNewspaper, faUser, faHandshake, faEnvelope, faImage, faWrench, faUsers, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-library.add(faNewspaper, faUser, faEnvelope, faImage, faWrench, faUsers, faPowerOff);
+library.add(faNewspaper, faUser, faHandshake, faEnvelope, faImage, faWrench, faUsers, faPowerOff);
 
 const SidenavItems = (props) => {
 
@@ -14,11 +14,11 @@ const SidenavItems = (props) => {
             text: 'Timeline',
             link: '/'
         },
-        // {
-        //     icon: 'user',
-        //     text: 'Notifications',
-        //     link: '/notifications'
-        // },
+        {
+            icon: 'handshake',
+            text: 'Requests',
+            link: '/requests'
+        },
         {
             icon: 'envelope',
             text: 'Network',
