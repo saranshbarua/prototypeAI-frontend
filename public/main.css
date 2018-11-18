@@ -792,6 +792,24 @@ body::-webkit-scrollbar-thumb {
     box-shadow: 0 5px 20px 0 rgba(0,0,0,0.17);
 }
 
+.cyw {
+    height: 38px;
+    width: 160px;
+    position: fixed;
+    top: 16px;
+    right: 50px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 4px 14px 0px rgba(0,0,0,0.21);
+    border: 0px;
+    font-size: 16px;
+}
+
+.cyw:hover {
+    box-shadow: 0px 5px 14px 0px rgba(0,0,0,0.35);
+    cursor: pointer;
+}
+
 .gp-input-container {
     position: fixed;
     bottom: 0px;

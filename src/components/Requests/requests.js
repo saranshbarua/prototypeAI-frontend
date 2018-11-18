@@ -30,6 +30,10 @@ export default class Requests extends Component {
     })
   }   
 
+  acceptRequest(username) {
+    
+  }
+
   render() {
     // const pendingRequests = this.state.requestBy.filter((request) => {
     //   return request.status === "pending"
@@ -50,7 +54,7 @@ export default class Requests extends Component {
             color: '#607d8b'
           }}>sent you a connection request</span>
           <button className="reject-req ssp-400">Ignore</button>
-          <button className="accept-req ssp-400">Accept</button>
+          <button onClick={(e) => this.acceptRequest(req.username,e)} className="accept-req ssp-400">Accept</button>
         </div>
       )
     })
