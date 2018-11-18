@@ -810,6 +810,10 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 
+.cyw:focus {
+    outline: none;
+}
+
 .gp-input-container {
     position: fixed;
     bottom: 0px;
