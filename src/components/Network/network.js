@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Network extends Component {
 
@@ -34,7 +35,10 @@ export default class Network extends Component {
 
   render() {
     const networkList = this.state.networkDetails.map((user,i) => (
-      <div className="network-card" key={i}>
+      <Link to={{
+        pathname: `/profile/${user.username}`
+      }} 
+      className="network-card" key={i}>
         <div className="net-cover">
           <div className="net-avatar">
             <img height="100%" src={user.userAvatar} alt=""/>
@@ -48,7 +52,7 @@ export default class Network extends Component {
         }}>
           {user.designation}
         </span>
-      </div>
+      </Link>
     ))
     return (
       <div className="network-container">

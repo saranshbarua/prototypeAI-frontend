@@ -1048,6 +1048,13 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    outline: none;
+    text-decoration: none;
+    transition: 260ms all ease-in-out;
+}
+
+.network-card:hover {
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.21);
 }
 
 .net-cover {
