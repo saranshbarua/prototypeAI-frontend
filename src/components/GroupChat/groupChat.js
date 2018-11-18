@@ -13,7 +13,8 @@ export default class groupChat extends Component {
     this.state = {
       modal: false,
       businessTitle: '',
-      businessBio: ''
+      businessBio: '',
+      extractedKeywords: []
     }
   }
 
@@ -36,13 +37,18 @@ export default class groupChat extends Component {
     })
   }
 
-  submitInfo(){
+  submitInfo(event){
+    event.preventDefault();
     let keywords = keyword_extractor.extract(this.state.businessBio,{
       language:"english",
       remove_digits: true,
       return_changed_case:true,
       remove_duplicates: false
     });
+    this.setState({
+      extractedKeywords: this.state.extractedKeywords.concat(keywords)
+    })
+    console.log(this.state.extractedKeywords);
   }
 
   showModal = () => {
