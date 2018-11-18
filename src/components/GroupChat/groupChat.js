@@ -9,7 +9,9 @@ export default class groupChat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      businessTitle: '',
+      businessBio: ''
     }
   }
 
@@ -20,12 +22,30 @@ export default class groupChat extends Component {
     })
   }
 
+  handleTitle(e) {
+    this.setState({
+      businessTitle: e.target.value
+    })
+  }
+
+  handleBio(e) {
+    this.setState({
+      businessBio: e.target.value
+    })
+  }
+
+  submitInfo(){
+    alert(this.state.businessTitle);
+    console.log('-------------------');
+    console.log(this.state.businessBio)
+  }
+
   showModal = () => {
     if(this.state.modal) {
       return (
         <div className="modal open-modal">
           <div className="ssp-300" style={{fontSize: '35px'}}>Describe your startup</div>
-          <form className="main-form">
+          <form onSubmit={this.submitInfo} className="main-form">
             <span className="ssp-400" style={{marginTop: '15px'}}>Enter a name for your business</span>
             <input style={{
               marginTop: '15px',
@@ -34,6 +54,8 @@ export default class groupChat extends Component {
               paddingLeft: '7px',
               fontSize: '17px'
             }} 
+            value={this.state.businessTitle}
+            onChange={(e) => this.handleTitle(e)}
             type="text" 
             placeholder="Enter title"
             className="ssp-400"
@@ -43,10 +65,12 @@ export default class groupChat extends Component {
               marginTop: '15px',
               height: '335px',
               width: '680px',
-              paddingLeft: '7px',
+              padding: '7px',
               fontSize: '17px',
               resize: 'none'
             }} 
+            value={this.state.businessBio}
+            onChange={(e) => this.handleBio(e)}
             type="text" 
             placeholder="Enter description"
             className="ssp-400"
@@ -69,6 +93,7 @@ export default class groupChat extends Component {
                 boxShadow: '0px 4px 10px 0px rgba(0,0,0,0.21)'
               }}
               className="ssp-400"
+              onClick={(e) => this.submitInfo(e)}
               >Submit</button>
             </div>
           </form>
