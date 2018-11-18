@@ -4,6 +4,8 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(faPaperPlane);
 
+const keyword_extractor = require("keyword-extractor");
+
 export default class groupChat extends Component {
 
   constructor(props) {
@@ -35,9 +37,12 @@ export default class groupChat extends Component {
   }
 
   submitInfo(){
-    alert(this.state.businessTitle);
-    console.log('-------------------');
-    console.log(this.state.businessBio)
+    let keywords = keyword_extractor.extract(this.state.businessBio,{
+      language:"english",
+      remove_digits: true,
+      return_changed_case:true,
+      remove_duplicates: false
+    });
   }
 
   showModal = () => {

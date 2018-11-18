@@ -5590,6 +5590,14 @@ jsx-ast-utils@^2.0.1:
   dependencies:
     array-includes "^3.0.3"
 
+keyword-extractor@^0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/keyword-extractor/-/keyword-extractor-0.0.15.tgz#193157dc6230f1be81f3147567ee8f16267d8e27"
+  integrity sha1-GTFX3GIw8b6B8xR1Z+6PFiZ9jic=
+  dependencies:
+    underscore "1.7.0"
+    underscore.string "2.3.3"
+
 killable@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -9258,6 +9266,16 @@ uglifyjs-webpack-plugin@^1.2.4:
     uglify-es "^3.3.4"
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
+
+underscore.string@2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-2.3.3.tgz#71c08bf6b428b1133f37e78fa3a21c82f7329b0d"
+  integrity sha1-ccCL9rQosRM/N+ePo6Icgvcymw0=
+
+underscore@1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
+  integrity sha1-a7rwh3UA02vjTsqlhODbn+8DUgk=
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
