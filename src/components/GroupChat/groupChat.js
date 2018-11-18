@@ -5,14 +5,88 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(faPaperPlane);
 
 export default class groupChat extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    }
+  }
+
+  openModal() {
+    let toggle = this.state.modal ? false : true;
+    this.setState({
+      modal: toggle
+    })
+  }
+
+  showModal = () => {
+    if(this.state.modal) {
+      return (
+        <div className="modal open-modal">
+          <div className="ssp-300" style={{fontSize: '35px'}}>Describe your startup</div>
+          <form className="main-form">
+            <span className="ssp-400" style={{marginTop: '15px'}}>Enter a name for your business</span>
+            <input style={{
+              marginTop: '15px',
+              height: '35px',
+              width: '680px',
+              paddingLeft: '7px',
+              fontSize: '17px'
+            }} 
+            type="text" 
+            placeholder="Enter title"
+            className="ssp-400"
+            />
+            <span className="ssp-400" style={{marginTop: '15px'}}>Describe your business in 200 words</span>
+            <textarea style={{
+              marginTop: '15px',
+              height: '335px',
+              width: '680px',
+              paddingLeft: '7px',
+              fontSize: '17px',
+              resize: 'none'
+            }} 
+            type="text" 
+            placeholder="Enter description"
+            className="ssp-400"
+            />
+            <div style={{
+              width: '680px',
+              display: 'flex',
+              justifyContent: 'flex-end'
+            }}>
+              <button style={{
+                height: '40px',
+                width: '130px',
+                backgroundColor: '#2196f3',
+                color: 'white',
+                textAlign: 'center',
+                fontSize: '18px',
+                marginRight: '-11px',
+                marginTop: '10px',
+                border: '0px',
+                boxShadow: '0px 4px 10px 0px rgba(0,0,0,0.21)'
+              }}
+              className="ssp-400"
+              >Submit</button>
+            </div>
+          </form>
+        </div>
+      )
+    }
+  }
+
   render() {
     return (
       <div className="groupchat-container">
         <div className="gpchat-header">
             <span className="ssp-400" style={{color: 'white', marginLeft: '10px', fontSize: '22px'}}>Group name</span>
             <span className="ssp-400" style={{color: 'white', marginLeft: '10px', fontStyle: 'italic', fontSize: '16px'}}>saransh shivansh himanshu param</span>
-            <button className="cyw">Get your website</button> 
+            <button className="cyw" onClick={(e) => this.openModal(e)}>Get your website</button> 
         </div>
+
+        {this.showModal()}
 
         <div className="chat-container">
           <div className="chatSender">Hey!</div>
