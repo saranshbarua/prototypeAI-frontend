@@ -154,18 +154,12 @@ export default class groupChat extends Component {
     const messageList = this.state.messages.map((msg,i) => {
       if(msg.author == this.state.username) {
         return (
-          <div>
-            <span>{msg.author}</span>
-            <div className="chatSender">{msg.message}</div>
-          </div>
+            <div className="chatSender">{msg.message}</div>  
         )
       }
       else {
         return (
-          <div>
-            <span>{msg.author}</span>
             <div className="chatReciever">{msg.message}</div>
-          </div>
         )
       }
     })
