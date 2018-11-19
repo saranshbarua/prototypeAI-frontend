@@ -146,11 +146,6 @@ export default class groupChat extends Component {
   }
 
   render() {
-
-    // const memberList = this.state.groupInfo[0].members.map((user,i) => {
-    //   return <span key = {i} className="ssp-300">user</span>
-    // })
-
     const messageList = this.state.messages.map((msg,i) => {
       if(msg.author === this.state.username) {
         return (
