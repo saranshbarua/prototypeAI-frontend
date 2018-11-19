@@ -20,7 +20,8 @@ export default class groupChat extends Component {
       groupName: this.props.match.params.groupname,
       groupInfo: {},
       message: '',
-      messages: []
+      messages: [],
+      themes: []
     };
     this.socket = io('localhost:8080');
     this.socket.on('RECEIVE_MESSAGE', function(data){
@@ -28,9 +29,9 @@ export default class groupChat extends Component {
     });
 
     const addMessage = data => {
-        console.log(data);
+        // console.log(data);
         this.setState({messages: [...this.state.messages, data]});
-        console.log(this.state.messages);
+        // console.log(this.state.messages);
     };
     this.sendMessage = ev => {
       ev.preventDefault();
@@ -47,6 +48,14 @@ export default class groupChat extends Component {
     const json = await response.json();
     this.setState({
       groupInfo: json
+    })
+  }
+
+  async componentDidMount() {
+    const response1 = await fetch(`http://localhost:3030/themes`);
+    const json1 = await response1.json();
+    this.setState({
+      themes: json1
     })
   }
 
@@ -80,7 +89,19 @@ export default class groupChat extends Component {
     this.setState({
       extractedKeywords: this.state.extractedKeywords.concat(keywords)
     })
-    console.log(this.state.extractedKeywords);
+    if(this.state.extractedKeywords.length !== 0) {
+      this.predictWebsites();
+    }
+  }
+
+  predictWebsites() {
+    this.state.extractedKeywords.map((keyword,key) => {
+      this.state.themes.map((theme,i) => {
+        if(theme.tags.indexOf(keyword) > -1) {
+          console.log(`item found in ${i}`)
+        }
+      })
+    })
   }
 
   showModal = () => {
@@ -146,6 +167,7 @@ export default class groupChat extends Component {
   }
 
   render() {
+
     const messageList = this.state.messages.map((msg,i) => {
       if(msg.author === this.state.username) {
         return (
