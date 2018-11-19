@@ -24,7 +24,7 @@ const Routes = () => {
       <Route path="/logout" component={Logout} />
       <Layout>
           <Route path="/user/groups" exact component={Groups}/>
-          <Route path="/groupchat" exact component={GroupChat} />
+          <Route path="/groupchat/:groupname" exact component={GroupChat} />
           <Route path="/user/profile" exact component={UserSettings} />
           <Route path="/search" exact component={SearchForm} />
           <Route path="/profile/:id" exact component={UserProfile} />

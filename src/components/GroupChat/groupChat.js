@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import io from 'socket.io-client';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,11 +12,42 @@ export default class groupChat extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: localStorage.getItem('loggedInUser'),
       modal: false,
       businessTitle: '',
       businessBio: '',
-      extractedKeywords: []
-    }
+      extractedKeywords: [],
+      groupName: this.props.match.params.groupname,
+      groupInfo: {},
+      message: '',
+      messages: []
+    };
+    this.socket = io('localhost:8080');
+    this.socket.on('RECEIVE_MESSAGE', function(data){
+        addMessage(data);
+    });
+
+    const addMessage = data => {
+        console.log(data);
+        this.setState({messages: [...this.state.messages, data]});
+        console.log(this.state.messages);
+    };
+    this.sendMessage = ev => {
+      ev.preventDefault();
+      this.socket.emit('SEND_MESSAGE', {
+          author: this.state.username,
+          message: this.state.message
+      });
+      this.setState({message: ''});
+  }
+  }
+
+  async componentWillMount() {
+    const response = await fetch(`http://localhost:3000/groups?name=${this.state.groupName}`);
+    const json = await response.json();
+    this.setState({
+      groupInfo: json
+    })
   }
 
   openModal() {
@@ -114,18 +146,42 @@ export default class groupChat extends Component {
   }
 
   render() {
+
+    // const memberList = this.state.groupInfo[0].members.map((user,i) => {
+    //   return <span key = {i} className="ssp-300">user</span>
+    // })
+
+    const messageList = this.state.messages.map((msg,i) => {
+      if(msg.author == this.state.username) {
+        return (
+          <div>
+            <span>{msg.author}</span>
+            <div className="chatSender">{msg.message}</div>
+          </div>
+        )
+      }
+      else {
+        return (
+          <div>
+            <span>{msg.author}</span>
+            <div className="chatReciever">{msg.message}</div>
+          </div>
+        )
+      }
+    })
+
     return (
       <div className="groupchat-container">
         <div className="gpchat-header">
-            <span className="ssp-400" style={{color: 'white', marginLeft: '10px', fontSize: '22px'}}>Group name</span>
-            <span className="ssp-400" style={{color: 'white', marginLeft: '10px', fontStyle: 'italic', fontSize: '16px'}}>saransh shivansh himanshu param</span>
+            <span className="ssp-400" style={{color: 'white', marginLeft: '10px', fontSize: '22px'}}>{this.state.groupName}</span>
+            <span className="ssp-400" style={{color: 'white', marginLeft: '10px', fontStyle: 'italic', fontSize: '16px'}}>{this.state.groupInfo.name}</span>
             <button className="cyw" onClick={(e) => this.openModal(e)}>Get your website</button> 
         </div>
 
         {this.showModal()}
 
         <div className="chat-container">
-          <div className="chatSender">Hey!</div>
+          {/* <div className="chatSender">Hey!</div>
           <div className="chatReciever">Hi :)</div>
           <div className="chatSender">Lorem ipsum is placeholder text commonly used in the graphic,</div>
           <div className="chatReciever">Lorem ipsum is placeholder text commonly used in the graphic, print, 
@@ -136,20 +192,27 @@ export default class groupChat extends Component {
            and publishing industries for previewing layouts and visual mockups
            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups..</div>
           <div className="chatReciever">Let's collect the data in userbase.</div>
-          <div className="chatSender">hey this is good.</div>
+          <div className="chatSender">hey this is good.</div> */}
+          {messageList}
         </div>
 
         <div className="gp-input-container">
-            <input 
-              type="text" 
-              className="ssp-400 gpchat-input"
-              placeholder="Enter text"
-            />
-            <button className="chatsendbutton">
-              <FontAwesomeIcon
-                icon="paper-plane"
+            <form className="gp-input-container">
+              <input 
+                type="text" 
+                className="ssp-400 gpchat-input"
+                placeholder="Enter text"
+                value={this.state.message}
+                onChange={ev => this.setState({message: ev.target.value})}
               />
-            </button>
+              <button
+                onClick={(e) => this.sendMessage(e)}
+                className="chatsendbutton">
+                <FontAwesomeIcon
+                  icon="paper-plane"
+                />
+              </button>
+            </form>
         </div>
       </div>
     )

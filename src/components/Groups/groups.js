@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,15 +24,15 @@ export default class Groups extends Component {
       })
   }
 
-  handleClick() {
-    this.props.history.push('/groupchat')
+  handleClick(groupname) {
+    this.props.history.push(`/groupchat/${groupname}`)
   }
 
   render() {
 
     const groupList = this.state.groups.map((group,key) => {
       return (
-        <div key={ key } onClick = {(e) => this.handleClick(e)} className="group-card">
+        <div key={ key } onClick = {(e) => this.handleClick(group.name,e)} className="group-card">
           <p className="group-name ssp-300">{ group.name }</p>
           <p className="group-topic ssp-400">
             { group.bio }
