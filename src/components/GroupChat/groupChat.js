@@ -152,14 +152,21 @@ export default class groupChat extends Component {
     // })
 
     const messageList = this.state.messages.map((msg,i) => {
-      if(msg.author == this.state.username) {
+      if(msg.author === this.state.username) {
         return (
-            <div className="chatSender">{msg.message}</div>  
+            <div key={i} className="chatSender">{msg.message}</div>  
         )
       }
       else {
         return (
-            <div className="chatReciever">{msg.message}</div>
+            <div key={i}>
+              <div className="ssp-400" style={{
+                marginLeft: '50px',
+                marginBottom: '-25px',
+                color: 'rgba(33, 150, 243, 0.8)'
+              }}>{msg.author}</div>
+              <div className="chatReciever">{msg.message}</div>
+            </div>
         )
       }
     })
@@ -175,18 +182,6 @@ export default class groupChat extends Component {
         {this.showModal()}
 
         <div className="chat-container">
-          {/* <div className="chatSender">Hey!</div>
-          <div className="chatReciever">Hi :)</div>
-          <div className="chatSender">Lorem ipsum is placeholder text commonly used in the graphic,</div>
-          <div className="chatReciever">Lorem ipsum is placeholder text commonly used in the graphic, print, 
-          and publishing industries for previewing layouts and visual mockups.</div>
-          <div className="chatSender">Lorem ipsum is placeholder text commonly used in the graphic, print,
-          Lorem ipsum is placeholder text commonly used in the graphic, print,
-           and publishing industries for previewing layouts and visual mockups.
-           and publishing industries for previewing layouts and visual mockups
-           Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups..</div>
-          <div className="chatReciever">Let's collect the data in userbase.</div>
-          <div className="chatSender">hey this is good.</div> */}
           {messageList}
         </div>
 
