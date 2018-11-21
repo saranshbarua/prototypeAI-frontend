@@ -12,20 +12,21 @@ export default class Requests extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/requests?username=${this.state.loggedUser}`).then(res => res.json())
+    fetch(`http://localhost:3000/requests?requestTo=${this.state.loggedUser}`).then(res => res.json())
     .then((result) => {
-      this.setState({
-        requestBy: result[0].requestsBy
+      result.map((re) => {
+        this.setState({
+          requestBy: [...this.state.requestBy, re.requestBy]
+        })
       })
     }).catch(() => {
-      console.log('no requests found');
       this.setState({
         noRequests: true
       })
     })
     .then(() => {
-      this.state.requestBy.map((user,i) => {
-        return fetch(`http://localhost:3000/user?username=${user.user}`).then(res => res.json())
+      this.state.requestBy.map((user) => {
+        fetch(`http://localhost:3000/user?username=${user}`).then(res => res.json())
         .then((result) => {
           let newDetails = this.state.requestByUserDetails.concat(result);
           this.setState({
@@ -58,7 +59,6 @@ export default class Requests extends Component {
     // const pendingRequests = this.state.requestBy.filter((request) => {
     //   return request.status === "pending"
     // });
-    console.log(this.state.noRequests)
     const reqList = this.state.requestByUserDetails.map((req,i) => {
       return (
         <div key={i} className="network-req">

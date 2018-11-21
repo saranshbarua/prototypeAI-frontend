@@ -48,8 +48,6 @@ export default class Search extends Component {
   }
 
   render() {
-    console.log(this.state.users)
-
     const redirection = this.state.redirect;
     if(redirection) {
       return <Redirect to={{

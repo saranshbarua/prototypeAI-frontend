@@ -74,7 +74,11 @@ export default class Suggestions extends Component {
         diff.push(k);
     }
     return diff;
-}
+  }
+
+  sendRequest(user) {
+    
+  }
 
   render() {
     const lengthOfUsers = this.state.inNetwork.length;
@@ -98,7 +102,7 @@ export default class Suggestions extends Component {
             <span style={{color: '#607d8b', fontSize: '13px'}}>{ user.designation }</span>
           </div>
           <div className="sugg-add">
-            <button className="add-sugg">
+            <button onClick={(e) => {this.sendRequest(user.username,e)}} className="add-sugg">
               <FontAwesomeIcon 
                 icon="plus"
                 size="sm"
