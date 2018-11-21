@@ -47,8 +47,9 @@ export default class UserProfile extends Component {
     .then(
       fetch(`http://localhost:3000/posts?author=${this.props.match.params.id}`).then(response => response.json())
         .then((result) => {
+          let revRes = result.reverse();
           this.setState({
-            posts: result
+            posts: revRes
           })
         }
         )
@@ -65,6 +66,8 @@ export default class UserProfile extends Component {
         pathname: `/`
       }} />
     }
+    console.log(this.state.posts)
+
     const userPostList = this.state.posts.map((post,i) => (
         <div key={i} className="post-box">
             <div className="post-by-info">

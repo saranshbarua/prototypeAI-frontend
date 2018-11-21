@@ -17,6 +17,7 @@ export default class Suggestions extends Component {
       inNetwork: [],
       finalNetworkUsername: [],
       loggedInUser: localStorage.getItem('loggedInUser'),
+      loggedUserSuperSet: ''
     }
   }
 

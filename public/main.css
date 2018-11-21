@@ -1137,6 +1137,8 @@ body::-webkit-scrollbar-thumb {
     bottom: -30px;
     border: 4px solid #263238;
     height: 100px;
+    width: 100px;
+    overflow: hidden
 }
 
 .net-name {
