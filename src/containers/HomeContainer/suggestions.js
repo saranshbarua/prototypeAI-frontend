@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,33 +12,90 @@ export default class Suggestions extends Component {
     super(props);
     this.state = {
       suggestedUsers: [],
-      loggedInUser: this.props.loggedIn,
+      suggestedUsersUsername: [],
+      inNetworkUsername: [],
+      inNetwork: [],
+      finalNetworkUsername: [],
+      loggedInUser: localStorage.getItem('loggedInUser'),
     }
   }
 
   componentDidMount() {
     fetch('http://localhost:3000/user').then(response => response.json())
     .then((result) => {
+      const uname = result.filter(x => {
+        return x.username !== this.state.loggedInUser
+      })
+      const unameArr = uname.map((u) => {
+        return u.username
+      })
        this.setState({
-         suggestedUsers: result.filter(x => {
-           return x.displayName !== this.state.loggedInUser
-         })
-       });
+         suggestedUsersUsername: unameArr
+      })
      }
-    )
+    ).then(() => {
+      fetch(`http://localhost:3000/user?username=${this.state.loggedInUser}`).then(res => res.json())
+      .then((result) => {
+        this.setState({
+          inNetworkUsername: result[0].network
+        })
+      }).then(() => {
+        let temp = this.arr_diff(this.state.suggestedUsersUsername,this.state.inNetworkUsername);
+        this.setState({
+          finalNetworkUsername: temp
+        })
+      })
+      .then(() => {
+        this.state.finalNetworkUsername.map((username,i) => {
+          fetch(`http://localhost:3000/user?username=${username}`).then(res => res.json())
+          .then((result) => {
+            this.setState({
+              inNetwork: [...this.state.inNetwork,...result]
+            })
+          })
+        })
+      })
+    })
   }
+  
+  arr_diff (a1, a2) {
+    var a = [], diff = [];
+    for (var i = 0; i < a1.length; i++) {
+        a[a1[i]] = true;
+    }
+    for (var i = 0; i < a2.length; i++) {
+        if (a[a2[i]]) {
+            delete a[a2[i]];
+        } else {
+            a[a2[i]] = true;
+        }
+    }
+    for (var k in a) {
+        diff.push(k);
+    }
+    return diff;
+}
 
   render() {
-    const lengthOfUsers = this.state.suggestedUsers.length;
-    this.state.suggestedUsers.splice(3,lengthOfUsers - 3);
-    const showTopThree = this.state.suggestedUsers.map((user, key) => {
+    console.log(this.state.inNetwork)
+    const lengthOfUsers = this.state.inNetwork.length;
+    this.state.inNetwork.splice(3,lengthOfUsers - 3);
+    const showTopThree = this.state.inNetwork.map((user, key) => {
       return (
         <div className="sugg-box" key = {key}>
           <div className="sugg-avatar">
             <img src={ user.userAvatar } alt="" className="sugg-img" />
           </div>
           <div className="sugg-desc ssp-400">
-            <span style={{color: '#2196f3'}}>{ user.displayName }</span>
+            <Link to={{
+              pathname: `/profile/${user.username}`
+            }}
+            style={{
+              textDecoration: 'none'
+            }}
+            >
+              <span style={{color: '#2196f3'}}>{ user.displayName }</span>
+            </Link>
             <span style={{color: '#607d8b', fontSize: '13px'}}>{ user.designation }</span>
           </div>
           <div className="sugg-add">
