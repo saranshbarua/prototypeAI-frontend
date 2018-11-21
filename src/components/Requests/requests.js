@@ -38,7 +38,10 @@ export default class Requests extends Component {
   }   
 
   acceptRequest(username) {
-    
+      fetch(`http://localhost:3000/requests?requestTo=${this.state.loggedUser}&requestBy=${username}`,{
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"}
+      }).then(response => response.json());
   }
 
   noRequestsDisplay() {

@@ -77,7 +77,17 @@ export default class Suggestions extends Component {
   }
 
   sendRequest(user) {
-    
+    alert(`Request sent to user`);
+    let data = {
+      "requestTo": `${user}`,
+      "requestBy": `${this.state.loggedInUser}`,
+      "status": "pending"
+    }
+    fetch('http://localhost:3000/requests', {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    }).then((res) => console.log(res.json))
   }
 
   render() {
