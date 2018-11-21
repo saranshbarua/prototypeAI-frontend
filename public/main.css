@@ -237,7 +237,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .popular-container {
-    position: absolute;
+    position: relative;
     top: -20px;
     left: -20px;
     height: 300px;
@@ -308,6 +308,9 @@ body::-webkit-scrollbar-thumb {
     color: rgb(33, 150, 243);
     border: 0px;
     margin-top: 5px;
+    position: absolute;
+    bottom: 16px;
+    right: -5px;
 }
 
 .next-pop-button:hover {
