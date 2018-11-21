@@ -77,7 +77,6 @@ export default class Suggestions extends Component {
 }
 
   render() {
-    console.log(this.state.inNetwork)
     const lengthOfUsers = this.state.inNetwork.length;
     this.state.inNetwork.splice(3,lengthOfUsers - 3);
     const showTopThree = this.state.inNetwork.map((user, key) => {

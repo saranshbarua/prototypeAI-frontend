@@ -7,8 +7,18 @@ export default class Search extends Component {
     this.state = {
       inputValue: '',
       searchedValue: '',
+      users: [],
       redirect: false
     }
+  }
+
+  componentDidMount() {
+    fetch(`http://localhost:3000/user`).then(res => res.json())
+    .then((result) => {
+      this.setState({
+        users: result
+      })
+    })
   }
 
   handleChange(event) {
@@ -20,14 +30,26 @@ export default class Search extends Component {
 
   submitForm(event) {
     event.preventDefault();
-    this.setState({
-      redirect: true,
-      inputValue: ''
-    });
-    console.log(this.state.searchedValue)
+    let isFound = false;
+    this.state.users.map((user,id) => {
+      if(user.username === this.state.inputValue) {
+        isFound = true;
+      }
+    })
+    if(isFound) {
+      this.setState({
+        redirect: true,
+        inputValue: ''
+      });
+    }
+    else {
+      alert('user not found');
+    }
   }
 
   render() {
+    console.log(this.state.users)
+
     const redirection = this.state.redirect;
     if(redirection) {
       return <Redirect to={{
