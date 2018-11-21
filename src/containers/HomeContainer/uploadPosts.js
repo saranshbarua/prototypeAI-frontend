@@ -15,13 +15,10 @@ export default class uploadPosts extends Component {
       timePosted: "",
       postDescription: "",
       imageUrl: "",
-      likes: 1184,
-      comments: [
-        "",
-        "",
-        ""
-      ],
-      imageUpload: false
+      likes: null,
+      comments: [],
+      imageUpload: false,
+      imageInput: ''
     }
   }
 
@@ -74,12 +71,34 @@ export default class uploadPosts extends Component {
     })
   }
 
+  handleImage(e) {
+    this.setState({
+      imageInput: e.target.value
+    })
+  }
+
+  submitImageUrl(ev) {
+    ev.preventDefault();
+    this.setState({
+      imageUrl: this.state.imageInput,
+      imageUpload: false
+    })
+  }
+
   showIU = () => {
     if(this.state.imageUpload) {
       return (
-        <div className="upload-image-box">
-          <form action="">
-
+        <div>
+          <form className="upload-image-box ssp-400" onSubmit={this.submitImageUrl}>
+            <span>Enter image URL</span>
+            <input
+              type="text"
+              name="imageUrl"
+              className="standard-input"
+              value={this.state.imageInput}
+              onChange={(e) => this.handleImage(e)}
+              placeholder="https://exampleImage.com"/>
+              <button className="standar-button" onClick={(e) => this.submitImageUrl(e)}>Submit</button>
           </form>
         </div>
       )
@@ -90,27 +109,29 @@ export default class uploadPosts extends Component {
   render() {
     console.log(this.state.authorTitle);
     return (
-      <form onSubmit={(e) => this.uploadPost(e)} className="upload-box">
-        <textarea name="postDescription" value={this.state.postDescription} onChange={(e) => this.handleChange(e)} className="upload-textarea ssp-400" placeholder="Write something..."></textarea>
-        <div className="ub-low">
-          <div className="upload-icons-tab">
-            <div onClick={(e) => this.openImageUpload(e)}>
+      <div className="upload-box-container">
+        {this.showIU()} 
+        <form onSubmit={(e) => this.uploadPost(e)} className="upload-box">
+          <textarea name="postDescription" value={this.state.postDescription} onChange={(e) => this.handleChange(e)} className="upload-textarea ssp-400" placeholder="Write something..."></textarea>
+          <div className="ub-low">
+            <div className="upload-icons-tab">
+              <div onClick={(e) => this.openImageUpload(e)}>
+                <FontAwesomeIcon 
+                  icon="paperclip"
+                  color="#445a64"
+                  size="sm"
+                />
+              </div>
               <FontAwesomeIcon 
-                icon="paperclip"
+                icon="location-arrow"
                 color="#445a64"
                 size="sm"
               />
             </div>
-            <FontAwesomeIcon 
-              icon="location-arrow"
-              color="#445a64"
-              size="sm"
-            />
+            <button onClick={(e) => {this.uploadPost(e)}} className="upload-button ssp-400">Upload</button>
           </div>
-          <button onClick={(e) => {this.uploadPost(e)}} className="upload-button ssp-400">Upload</button>
-          {this.showIU()} 
-        </div>
-      </form>
+        </form>
+      </div>
     )
   }
 }

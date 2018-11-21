@@ -401,13 +401,62 @@ body::-webkit-scrollbar-thumb {
 
 /* Upload box */
 
+.upload-box-container {
+    width: 85%;
+}
+
 .upload-box {
     height: 150px;
-    width: 85%;
+    width: 100%;
     margin-top: -20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     background-color: #cfd8dc;
+}
+
+.upload-image-box {
+    position: fixed;
+    top: 10px;
+    left: 600px;
+    height: 130px;
+    width: 350px;
+    box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.17);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px;
+    z-index: 2;
+    background-color: white;
+    animation: showIU 400ms ease-in-out 1 forwards;
+    border-radius: 4px;
+}
+
+.standard-input {
+    min-height: 35px;
+    width: 90%;
+
+}
+
+.standar-button {
+    height: 40px;
+    width: 120px;
+    text-align: center;
+    background-color: #2196f3;
+    border: 0px;
+    border-radius: 3px;
+    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.14);
+}   
+
+@keyframes showIU {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .upload-textarea {
