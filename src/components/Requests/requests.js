@@ -6,7 +6,8 @@ export default class Requests extends Component {
     this.state = {
       loggedUser: localStorage.getItem('loggedInUser'),
       requestBy: [],
-      requestByUserDetails: []
+      requestByUserDetails: [],
+      noRequests: false
     }
   }
 
@@ -15,6 +16,11 @@ export default class Requests extends Component {
     .then((result) => {
       this.setState({
         requestBy: result[0].requestsBy
+      })
+    }).catch(() => {
+      console.log('no requests found');
+      this.setState({
+        noRequests: true
       })
     })
     .then(() => {
@@ -34,10 +40,25 @@ export default class Requests extends Component {
     
   }
 
+  noRequestsDisplay() {
+    if(this.state.noRequests) {
+      return(
+        <div className="ssp-300" style={{
+          color: '#607d8b',
+          fontSize: '30px',
+          marginTop: '280px'
+        }}>
+          No new requests found!
+        </div>
+      )
+    }
+  }
+
   render() {
     // const pendingRequests = this.state.requestBy.filter((request) => {
     //   return request.status === "pending"
     // });
+    console.log(this.state.noRequests)
     const reqList = this.state.requestByUserDetails.map((req,i) => {
       return (
         <div key={i} className="network-req">
@@ -63,6 +84,7 @@ export default class Requests extends Component {
         <p className="ssp-300" style={{
           fontSize: '40px'
         }}>Network Requests</p>
+        {this.noRequestsDisplay()}
         {reqList}
       </div>
     )
