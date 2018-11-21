@@ -9,19 +9,31 @@ export default class uploadPosts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      author: this.props.loggedIn,
-      authorTitle: "Designer",
-      authorAvatar: "https://avatars1.githubusercontent.com/u/23500643?s=400&u=9611ca60ed6b48103c3272a195b68702e287757e&v=4",
+      author: localStorage.getItem('loggedInUser'),
+      authorTitle: "",
+      authorAvatar: "",
       timePosted: "",
       postDescription: "",
-      imageUrl: "https://gozags.com/images/2015/8/31/8870367.jpeg",
+      imageUrl: "",
       likes: 1184,
       comments: [
         "",
         "",
         ""
-      ]
+      ],
+      imageUpload: false
     }
+  }
+
+  componentDidMount() {
+    let un = localStorage.getItem('loggedInUser');
+    fetch(`http://localhost:3000/user?username=${un}`).then(res => res.json())
+    .then((result) => {
+      this.setState({
+        authorTitle: result[0].designation,
+        authorAvatar: result[0].userAvatar
+      })
+    })
   }
 
   handleChange(e) {
@@ -56,24 +68,47 @@ export default class uploadPosts extends Component {
     console.log('Form Submitted');
   }
 
+  openImageUpload() {
+    this.setState({
+      imageUpload: true
+    })
+  }
+
+  showIU = () => {
+    if(this.state.imageUpload) {
+      return (
+        <div className="upload-image-box">
+          <form action="">
+
+          </form>
+        </div>
+      )
+    }
+  }
+
+
   render() {
+    console.log(this.state.authorTitle);
     return (
       <form onSubmit={(e) => this.uploadPost(e)} className="upload-box">
         <textarea name="postDescription" value={this.state.postDescription} onChange={(e) => this.handleChange(e)} className="upload-textarea ssp-400" placeholder="Write something..."></textarea>
         <div className="ub-low">
           <div className="upload-icons-tab">
-            <FontAwesomeIcon 
-              icon="paperclip"
-              color="#445a64"
-              size="sm"
-            />
+            <div onClick={(e) => this.openImageUpload(e)}>
+              <FontAwesomeIcon 
+                icon="paperclip"
+                color="#445a64"
+                size="sm"
+              />
+            </div>
             <FontAwesomeIcon 
               icon="location-arrow"
               color="#445a64"
               size="sm"
             />
           </div>
-          <button onClick={(e) => {this.uploadPost(e)}} className="upload-button ssp-400">Upload</button> 
+          <button onClick={(e) => {this.uploadPost(e)}} className="upload-button ssp-400">Upload</button>
+          {this.showIU()} 
         </div>
       </form>
     )

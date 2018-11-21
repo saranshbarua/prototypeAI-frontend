@@ -21,7 +21,10 @@ export default class groupChat extends Component {
       groupInfo: {},
       message: '',
       messages: [],
-      themes: []
+      themes: [],
+      themeCount: [],
+      sortedThemes: [],
+      themesModal: false
     };
     this.socket = io('localhost:8080');
     this.socket.on('RECEIVE_MESSAGE', function(data){
@@ -95,13 +98,60 @@ export default class groupChat extends Component {
   }
 
   predictWebsites() {
+    let matchedkeyWordsId = [];
+    const combinedThemes = [];
+    combinedThemes.length = this.state.themes.length;
+    combinedThemes.fill(0);
+    let sum = 0;
     this.state.extractedKeywords.map((keyword,key) => {
       this.state.themes.map((theme,i) => {
         if(theme.tags.indexOf(keyword) > -1) {
-          console.log(`item found in ${i}`)
+          matchedkeyWordsId.push(i);
         }
       })
     })
+    matchedkeyWordsId.sort();
+    matchedkeyWordsId.map((id) => {
+      combinedThemes[id]++;
+    })
+    combinedThemes.map((i) => {
+      sum+= i;
+    })
+    const percentCombinedThemes = combinedThemes.map(id => (id/sum)*100);
+    this.setState(prevState => ({
+      themeCount: [].concat(percentCombinedThemes)
+    }))
+    if(this.state.themeCount.length !== 0) {
+    this.mapArrayToObject()
+    }
+  }
+
+  mapArrayToObject() {
+    const arr = this.state.themeCount;
+    const ob = {}
+    arr.map((value,index) => {
+        if(value!==0){
+          ob[index] = value
+        }
+    })
+    var sortable = [];
+    for (var theme in ob) {
+        sortable.push([theme, ob[theme]]);
+    }
+    sortable.sort(function(a, b) {
+        return b[1] - a[1];
+    });
+    this.setState({
+      sortedThemes: [].concat(sortable)
+    })
+    if(this.state.sortedThemes.length !== 0) {
+      console.log(this.state.sortedThemes);
+      console.log(this.state.themes);
+      this.setState({
+        modal: false,
+        themesModal: true
+      })
+    }
   }
 
   showModal = () => {
@@ -124,7 +174,7 @@ export default class groupChat extends Component {
             placeholder="Enter title"
             className="ssp-400"
             />
-            <span className="ssp-400" style={{marginTop: '15px'}}>Describe your business in 200 words</span>
+            <span className="ssp-400" style={{marginTop: '15px'}}>Describe your business in 100 words</span>
             <textarea style={{
               marginTop: '15px',
               height: '335px',
@@ -166,6 +216,55 @@ export default class groupChat extends Component {
     }
   }
 
+  attachThemes = () => {
+    if(this.state.themesModal) {
+      let farray = [];
+      this.state.sortedThemes.map((theme,i) => {
+        let ind = theme[0];
+        farray.push(
+          {
+            'url': this.state.themes[ind].demoUrl,
+            'percentage': theme[1],
+            'downloadLink': this.state.themes[ind].githubLink
+          }
+        )
+      })
+      console.log(farray);
+      return (
+        <div className="themeModal">
+          <span className="ssp-300" style={{fontSize: '35px'}}
+          >
+            The best matches for your description are
+          </span>
+          {
+            farray.map((th,key) => {
+              return (
+                <div className="theme-box ssp-400" key={key}>
+                  <span>
+                    Demo URL: <a className="theme-link" href={th.url} target="_blank">
+                      {th.url}
+                    </a> 
+                  </span>
+                  <div className="ssp-400" style={{
+                    color: '#607d8b',
+                    fontSize: '16px'
+                  }}>
+                    Matched {th.percentage.toFixed(2)}%
+                  </div>
+                  <span style={{
+                    fontSize: '18px'
+                  }}>
+                    <a className="theme-link" href={th.downloadLink} target="_blank">Download link</a> 
+                  </span>
+                </div>
+              )
+            })
+          }
+        </div>
+      )
+    }
+  }
+
   render() {
 
     const messageList = this.state.messages.map((msg,i) => {
@@ -197,6 +296,7 @@ export default class groupChat extends Component {
         </div>
 
         {this.showModal()}
+        {this.attachThemes()}
 
         <div className="chat-container">
           {messageList}
