@@ -38,7 +38,8 @@ export default class Suggestions extends Component {
       fetch(`http://localhost:3000/user?username=${this.state.loggedInUser}`).then(res => res.json())
       .then((result) => {
         this.setState({
-          inNetworkUsername: result[0].network
+          inNetworkUsername: result[0].network,
+          loggedUserSuperSet: result[0].set
         })
       }).then(() => {
         let temp = this.arr_diff(this.state.suggestedUsersUsername,this.state.inNetworkUsername);
@@ -78,7 +79,7 @@ export default class Suggestions extends Component {
   }
 
   sendRequest(user) {
-    alert(`Request sent to user`);
+    alert(`Your request is sent to ${user}`);
     let data = {
       "requestTo": `${user}`,
       "requestBy": `${this.state.loggedInUser}`,
@@ -92,9 +93,13 @@ export default class Suggestions extends Component {
   }
 
   render() {
+    console.log(this.state.inNetwork)
     const lengthOfUsers = this.state.inNetwork.length;
-    this.state.inNetwork.splice(3,lengthOfUsers - 3);
-    const showTopThree = this.state.inNetwork.map((user, key) => {
+    const finalList = this.state.inNetwork.filter((x) => {
+      return x.set === this.state.loggedUserSuperSet
+    })
+    finalList.splice(3,lengthOfUsers - 3);
+    const showTopThree = finalList.map((user, key) => {
       return (
         <div className="sugg-box" key = {key}>
           <div className="sugg-avatar">

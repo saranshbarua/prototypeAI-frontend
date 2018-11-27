@@ -322,7 +322,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .suggestion-container {
-    min-height: 290px;
+    min-height: 100px;
     width: 71%;
     background-color: white;
     margin-top: 25px;
