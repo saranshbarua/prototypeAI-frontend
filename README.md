@@ -1,5 +1,5 @@
 # prototypeAI frontend
-Front-end for prototypeAI
+Frontend for prototypeAI built on react
 
 ## Snapshots
 
