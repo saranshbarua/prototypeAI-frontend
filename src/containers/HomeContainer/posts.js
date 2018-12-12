@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faThumbsUp, faComments } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 library.add(faThumbsUp, faComments);
 
@@ -65,7 +66,9 @@ export default class Posts extends Component {
         <div key={i} className="post-box">
             <div className="post-by-info">
                 <div className="post-by-img">
-                    <img src={ post.authorAvatar } alt="profileimg" className="post-img" />
+                    <Link to={{
+                      pathname: `/profile/${ post.author }`
+                    }} ><img src={ post.authorAvatar } alt="profileimg" className="post-img" /></Link>
                 </div>
                 <div className="post-by-desc">
                     <span className="post-by-user ssp-400">{ post.author }</span>
