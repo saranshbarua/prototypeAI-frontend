@@ -1,6 +1,10 @@
 # prototypeAI frontend
 Frontend for prototypeAI built on react
 
+## Status
+Currently in development.
+<span style="color:red">**Not for testing.**</span>
+
 ## Snapshots
 
 #### User timeline
