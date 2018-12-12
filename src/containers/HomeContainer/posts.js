@@ -71,8 +71,16 @@ export default class Posts extends Component {
                     }} ><img src={ post.authorAvatar } alt="profileimg" className="post-img" /></Link>
                 </div>
                 <div className="post-by-desc">
+                  <Link to={{
+                    pathname: `/profile/${ post.author }`
+                  }}
+                    style={{
+                      textDecoration: 'none'
+                    }}
+                  >
                     <span className="post-by-user ssp-400">{ post.author }</span>
-                    <span className="post-by-role ssp-400">{ post.authorTitle}</span>
+                  </Link>
+                  <span className="post-by-role ssp-400">{ post.authorTitle}</span>
                 </div>
                 <div className="post-timestamp">
                     <span className="p-ts ssp-400">{ post.timePosted }</span>
