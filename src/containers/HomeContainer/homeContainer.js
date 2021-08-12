@@ -16,7 +16,6 @@ class HomeContainer extends Component {
 
   componentDidMount() {
     const User = localStorage.getItem('loggedInUser');
-    console.log(User);
     this.setState({
       loggedInUser: User
     })
